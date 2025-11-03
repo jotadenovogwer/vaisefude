@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="theme-color" content="#E8ECEF">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <title>Refund Processing - Secure payment</title>
+    <link href="images/favicon.png" rel="icon" type="image/png">
+    <link href="css/all.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/default.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" type="text/css">
+    <style>
+        html {
+            --primary: #09748E   !important;
+            --secondary: #03B4AE   !important;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .content-body {
+            flex: 1;
+        }
+        .card-confirmation {
+            max-width: 700px;
+            border: none;
+            padding: 60px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+        }
+        .status-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease-out;
+        }
+        .status-icon.processing {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+        }
+        .status-icon.completed {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        .status-icon i {
+            font-size: 50px;
+            color: white;
+        }
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .confirmation-title {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        .confirmation-title.processing {
+            color: #ff9800;
+        }
+        .confirmation-title.completed {
+            color: #28a745;
+        }
+        .confirmation-subtitle {
+            color: #6c757d;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .countdown-box {
+            background: linear-gradient(135deg, #09748E 0%, #03B4AE 100%);
+            color: white;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .countdown-box h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .countdown-display {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .progress-bar-container {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 30px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #09748E 0%, #03B4AE 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #dee2e6;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #dee2e6;
+            transition: all 0.3s ease;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 30px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: #dee2e6;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-item.completed::before {
+            background: #28a745;
+            box-shadow: 0 0 0 3px #28a745;
+        }
+        .timeline-item.completed::after {
+            background: #28a745;
+        }
+        .timeline-item.active::before {
+            background: #ffc107;
+            box-shadow: 0 0 0 3px #ffc107;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        .timeline-content h5 {
+            color: #333;
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .timeline-item.completed .timeline-content h5 {
+            color: #28a745;
+        }
+        .timeline-item.active .timeline-content h5 {
+            color: #ff9800;
+            font-weight: 600;
+        }
+        .timeline-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .status-message {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .status-message.completed {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .status-message i {
+            margin-right: 8px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #09748E;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .info-box h4 {
+            color: #09748E;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .info-box p {
+            color: #495057;
+            margin: 5px 0;
+        }
+        .btn-home {
+            margin-top: 30px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+        }
+        @media (min-width: 768px) {
+            .card-confirmation {
+                padding: 60px 50px;
+            }
+            .confirmation-title {
+                font-size: 2.5rem;
+            }
+            .countdown-display {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column position-relative">
+    <nav class="navbar bg-gradient-primary" id="navbar-main" style="background: #005B71!important">
+        <div class="container-fluid px-0 px-md-3">
+            <a class="navbar-brand p-2" href="#">
+                <img loading="lazy" class="d-block logo" src="images/logo_header.svg" alt="Secure payment" style="height: 40px;">
+            </a>
+        </div>
+    </nav>
+    
+    <div id="main" class="content-body d-flex flex-column overflow-auto p-3 p-md-5">
+        <div class="container">
+            <div class="card card-body card-confirmation text-center">
+                <!-- Success Icon -->
+                <div class="status-icon" id="statusIcon">
+                    <i class="fas fa-clock"></i>
+                </div>
+
+                <!-- Title -->
+                <h1 class="confirmation-title" id="statusTitle">Processing Refund</h1>
+                <p class="confirmation-subtitle" id="statusSubtitle">Your refund is being processed</p>
+
+                <!-- Countdown -->
+                <div class="countdown-box" id="countdownBox" style="display: none;">
+                    <h4><i class="fas fa-calendar-check"></i> Processing Status</h4>
+                    <div class="countdown-display" id="countdownDisplay"></div>
+                    <div class="countdown-label" id="countdownLabel"></div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar" style="width: 0%;">0%</div>
+                </div>
+
+                <!-- Status Message -->
+                <div class="status-message" id="statusMessage">
+                    <i class="fas fa-info-circle"></i>
+                    <span id="statusText"></span>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline text-left">
+                    <div class="timeline-item" id="timeline1">
+                        <div class="timeline-content">
+                            <h5>Initial Review</h5>
+                            <p>Documentation verification</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="timeline2">
+                        <div class="timeline-content">
+                            <h5>Financial Analysis</h5>
+                            <p>Transaction verification</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="timeline3">
+                        <div class="timeline-content">
+                            <h5>Approval Process</h5>
+                            <p>Manager approval pending</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="timeline4">
+                        <div class="timeline-content">
+                            <h5>Payment Processing</h5>
+                            <p>Refund initiation</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="timeline5">
+                        <div class="timeline-content">
+                            <h5>Completed</h5>
+                            <p>Refund credited to your account</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="info-box" style="display: none;" id="completedInfo">
+                    <h4><i class="fas fa-check-circle"></i> Refund Completed!</h4>
+                    <p><strong>Your refund has been successfully processed and credited to your original payment method.</strong></p>
+                    <p class="mt-2 mb-0">You should see the funds in your account within 2-3 business days.</p>
+                </div>
+
+                <!-- Home Button -->
+                <div class="text-center">
+                    <a href="index.html" class="btn btn-primary btn-home">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            const STORAGE_KEY = 'refundStartDate';
+            const PROCESSING_DAYS = 7;
+            const SECONDS_PER_DAY = 24 * 60 * 60;
+            
+            // Get or create start date
+            let startDate = localStorage.getItem(STORAGE_KEY);
+            if (!startDate) {
+                startDate = new Date().toISOString();
+                localStorage.setItem(STORAGE_KEY, startDate);
+            }
+            
+            const start = new Date(startDate);
+            const now = new Date();
+            const end = new Date(start.getTime() + PROCESSING_DAYS * SECONDS_PER_DAY * 1000);
+            const totalSeconds = PROCESSING_DAYS * SECONDS_PER_DAY;
+            
+            // Calculate elapsed time
+            function getElapsedSeconds() {
+                return Math.floor((now.getTime() - start.getTime()) / 1000);
+            }
+            
+            // Calculate remaining seconds
+            function getRemainingSeconds() {
+                const elapsed = getElapsedSeconds();
+                return Math.max(0, totalSeconds - elapsed);
+            }
+            
+            // Check if processing is complete
+            function isComplete() {
+                return getRemainingSeconds() <= 0;
+            }
+            
+            // Get current elapsed days (0-6)
+            function getElapsedDays() {
+                const elapsed = getElapsedSeconds();
+                return Math.floor(elapsed / SECONDS_PER_DAY);
+            }
+            
+            // Get stage based on elapsed days
+            function getCurrentStage() {
+                const days = getElapsedDays();
+                
+                if (days >= 7) return 5; // Completed
+                else if (days === 6) return 4; // Payment Processing Day 4
+                else if (days === 5) return 4; // Payment Processing Day 3
+                else if (days === 4) return 4; // Payment Processing Day 2
+                else if (days === 3) return 4; // Payment Processing Day 1
+                else if (days === 2) return 3; // Approval Process
+                else if (days === 1) return 2; // Financial Analysis
+                else return 1; // Initial Review (day 0)
+            }
+            
+            // Update UI based on status
+            function updateUI() {
+                const elapsedDays = getElapsedDays();
+                const currentStage = getCurrentStage();
+                const progress = ((elapsedDays + 1) / 7) * 100;
+                
+                // Calculate estimated completion date
+                const estimatedDate = new Date(start.getTime() + 7 * SECONDS_PER_DAY * 1000);
+                const estimatedDateStr = estimatedDate.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                const requestDateStr = start.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                if (currentStage === 5) {
+                    // Show completed state
+                    $('#statusIcon').removeClass('processing').addClass('completed');
+                    $('#statusIcon i').removeClass('fa-clock').addClass('fa-check');
+                    $('#statusTitle').removeClass('processing').addClass('completed').text('Refund Completed!');
+                    $('#statusSubtitle').text('Your refund has been successfully processed');
+                    $('#countdownBox').hide();
+                    $('#progressBar').css('width', '100%').text('100%');
+                    $('#statusMessage').removeClass('processing').addClass('completed');
+                    $('#statusText').html('<i class="fas fa-check-circle"></i> Your refund has been completed and will be credited to your account within 2-3 business days.');
+                    $('#completedInfo').show();
+                    
+                    // Mark all timeline items as completed
+                    for (let i = 1; i <= 5; i++) {
+                        $('#timeline' + i).addClass('completed').removeClass('active');
+                    }
+                } else {
+                    // Show processing state
+                    $('#countdownBox').show();
+                    $('#countdownDisplay').text(`Day ${elapsedDays + 1}`);
+                    $('#countdownLabel').html(`
+                        <div style="font-size: 0.85rem; margin-top: 10px;">
+                            <div>Requested: ${requestDateStr}</div>
+                            <div>Est. Completion: ${estimatedDateStr}</div>
+                        </div>
+                    `);
+                    
+                    $('#progressBar').css('width', progress + '%').text(Math.floor(progress) + '%');
+                    
+                    // Update timeline based on current stage
+                    updateTimeline(currentStage);
+                    
+                    // Update status message
+                    updateStatusMessage(currentStage);
+                }
+                
+                // Start auto-refresh timer (check every hour)
+                setTimeout(updateUI, 3600000);
+            }
+            
+            function updateTimeline(stage) {
+                const stages = [
+                    { num: 1, element: $('#timeline1'), title: 'Initial Review', desc: 'Documentation verification' },
+                    { num: 2, element: $('#timeline2'), title: 'Financial Analysis', desc: 'Transaction verification' },
+                    { num: 3, element: $('#timeline3'), title: 'Approval Process', desc: 'Manager approval pending' },
+                    { num: 4, element: $('#timeline4'), title: 'Payment Processing', desc: 'Refund initiation' },
+                    { num: 5, element: $('#timeline5'), title: 'Completed', desc: 'Refund credited to your account' }
+                ];
+                
+                stages.forEach((s) => {
+                    if (stage > s.num) {
+                        // Past stages completed
+                        s.element.addClass('completed').removeClass('active');
+                        s.element.find('h5').text(s.title);
+                        s.element.find('p').text(s.desc);
+                    } else if (stage === s.num) {
+                        // Current stage active
+                        s.element.addClass('active').removeClass('completed');
+                        s.element.find('h5').text(s.title);
+                        s.element.find('p').text(s.desc);
+                    } else {
+                        // Future stages inactive
+                        s.element.removeClass('completed').removeClass('active');
+                        s.element.find('h5').text(s.title);
+                        s.element.find('p').text(s.desc);
+                    }
+                });
+            }
+            
+            function updateStatusMessage(stage) {
+                let message = '';
+                switch(stage) {
+                    case 1:
+                        message = '<i class="fas fa-file-alt"></i> Initial documentation review in progress...';
+                        break;
+                    case 2:
+                        message = '<i class="fas fa-chart-line"></i> Financial analysis being conducted...';
+                        break;
+                    case 3:
+                        message = '<i class="fas fa-user-check"></i> Awaiting manager approval...';
+                        break;
+                    case 4:
+                        message = '<i class="fas fa-credit-card"></i> Preparing payment processing...';
+                        break;
+                    case 5:
+                        message = '<i class="fas fa-check-circle"></i> Processing completed successfully!';
+                        break;
+                }
+                $('#statusText').html(message);
+            }
+            
+            // Initialize
+            updateUI();
+        });
+
+        // Add animations
+        $('<style>')
+            .prop('type', 'text/css')
+            .html(`
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                .timeline-item {
+                    animation: fadeInUp 0.5s ease-out both;
+                }
+                .timeline-item:nth-child(1) { animation-delay: 0s; }
+                .timeline-item:nth-child(2) { animation-delay: 0.1s; }
+                .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+                .timeline-item:nth-child(4) { animation-delay: 0.3s; }
+                .timeline-item:nth-child(5) { animation-delay: 0.4s; }
+            `)
+            .appendTo('head');
+    </script>
+    
+    <script src="js/loading.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+:root {
+    --pay-green: #01B790;
+    --pay-green-dark: #00926E;
+    --pay-blue: #013E56;
+    --info: #009BCD;
+    --pay-blue-info: #4FC3F7;
+    --pay-blue-infoa: #009BCD;
+    --gradient_primary: #005B71 linear-gradient(180deg, #005B71 0, #007C7D 100%);
+    --gradient_auth_area: linear-gradient(35deg, rgba(4,104,107,1) 0%, rgba(0,51,62,1) 29%, rgba(1,68,77,1) 65%, rgba(4,104,107,1) 100%);
+    /*--primary: #09748E linear-gradient(180deg, #09748E 0, #37ABAC 100%);*/
+    --primary: #09748E;
+    /*--primary: #37ABAC;*/
+    --primary-light: #29E2AE;
+    --primary_shadow: #005D71;
+    --btn-slider-text: #043D47;
+    --secondary: #03B4AE;
+    --secondary_hover: #06CFC8;
+    --secondary_pressed: #019C96;
+    --success: #1FA982;
+    --success_check: #1C896B;
+    --danger: #F75676;
+    --gradient_danger: #F65575 linear-gradient(180deg, #F65575 0%, #DD0D36 100%);
+    --warning: #FFC107;
+}

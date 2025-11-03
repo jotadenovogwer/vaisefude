@@ -1,0 +1,972 @@
+<!DOCTYPE html><html lang="br"><head>
+    <meta charset="utf-8">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="theme-color" content="#E8ECEF">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="csrf-token" content="EN55sJqtLlGvTp63VqeN3j4h7v7wvsjkkVguIyi9">
+    <title>Secure payment</title>
+    <link href="images/favicon.png" rel="icon" type="image/png">
+    <link href="css/all.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/default.css">
+    <link href="css/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="css/daterangepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" type="text/css">
+    <style>
+        html {
+            --primary: #09748E   !important;
+            --secondary: #03B4AE   !important;
+        }
+        body {
+            height: 100vh;
+        }
+        .content-body {
+            flex: 1;
+        }
+        .navbar {
+            position: -webkit-sticky;
+        }
+        .dropdown-avatar {
+            width: 232px;
+        }
+        .dropdown-avatar .dropdown-header {
+            border-bottom: 1px solid #EDEFF1;
+        }
+        .dropdown-avatar .dropdown-item,
+        .dropdown-avatar .dropdown-header {
+            padding-left: 16px;
+            padding-right: 16px;
+            white-space: normal !important;
+            word-break: break-word;
+            color: #222F3E;
+        }
+        .dropdown-avatar .dropdown-item i {
+            color: #5A5D61;
+            float: left;
+            font-size: 20px;
+        }
+        .dropdown-avatar .dropdown-item h5 {
+            margin-left: 41px;
+            margin-bottom: unset;
+        }
+        #navbar-main .dropdown-item:active {
+            background-color: #edeff1;
+        }
+        .navbar-brand .logo {
+            height: 40px;
+        }
+        @media (max-width: 576px) {
+            .navbar-brand .logo {
+                display: none !important;
+            }
+            .navbar-brand .logo-mobile {
+                display: block !important;
+                height: 25px;
+                margin-bottom: 3px;
+            }
+        }
+    </style>
+        <style>
+        .height-100 {
+            height: 100%;
+            padding: 0;
+        }
+        .card-login {
+            max-width: 450px;
+            border: none;
+            padding: 40px;
+        }
+        .product-image {
+            width: 100px;
+            height: auto;
+        }
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        .language-section {
+            display: flex;
+            align-items: center;
+        }
+        /* Estilos específicos para o seletor de língua no login */
+        .language-section .languageChange {
+            position: relative;
+        }
+        .language-section .languageChange__currentLanguage {
+            color: #333;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 8px 12px;
+            transition: all 0.2s ease;
+        }
+        .language-section .languageChange__currentLanguage img {
+            filter: none;
+            height: 16px;
+        }
+        .language-section .languageChange__currentLanguage .lang {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Estilos para as opções de login */
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+        .login-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fff;
+        }
+        .login-option:hover {
+            border-color: #007bff;
+            background: #f8f9ff;
+        }
+        .login-option.selected {
+            border-color: #007bff;
+            background: #f0f8ff;
+        }
+        .login-option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+        .login-option-label {
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        .login-option-description {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        /* Campo de entrada dinâmico */
+        .dynamic-field {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .dynamic-field.show {
+            display: block;
+        }
+        @keyframes  fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos para o campo de telefone */
+        .phone-input-wrapper {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+        }
+        .phone-country-select {
+            min-width: 80px !important;
+            width: 80px !important;
+        }
+        .phone-input-wrapper .select2-container {
+            width: 80px !important;
+            max-width: 80px !important;
+        }
+        .phone-input-wrapper .select2-container .select2-selection {
+            width: 80px !important;
+            max-width: 80px !important;
+        }
+        .phone-input-wrapper .select2-container--default .select2-selection--single {
+            height: 38px !important;
+            border-radius: 4px;
+        }
+        .phone-input-wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            line-height: 36px;
+            padding-left: 8px !important;
+            padding-right: 20px !important;
+            width: 80px !important;
+        }
+        .phone-input-wrapper .select2-container--default .select2-selection__arrow {
+            height: 36px;
+            right: 8px;
+        }
+        .phone-number-input {
+            flex: 1;
+            min-width: 0;
+        }
+        .form-group {
+            position: relative;
+        }
+
+        @media (max-width: 576px) {
+            .header-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column position-relative">
+<nav class="navbar bg-gradient-primary" id="navbar-main" style="background: #005B71!important">
+    <div class="container-fluid px-0 px-md-3">
+        <a class="navbar-brand p-2" href=" https://app.perfectpay.com.br/customer ">
+            <img loading="lazy" class="d-block logo" src="images/logo_header.svg" alt="Secure payment">
+            <img loading="lazy" class="d-none logo-mobile" src="images/logo_header_mobile.svg" alt="Secure payment">
+        </a>
+        <div class="d-flex align-items-center">
+            <div id="select_language">
+                <div class="languageChange nav-item dropdown">
+    <div class="languageChange__currentLanguage">
+        <img src="images/icon-world-ligth.svg" alt="">
+        <span class="lang">en-US</span>
+    </div>
+</div>
+
+
+            </div>
+                    </div>
+    </div>
+</nav>
+<div id="main" class="content-body d-flex flex-column overflow-auto p-3 p-md-5">
+        <div class="d-md-flex justify-content-center align-items-center container height-100">
+        <div class="card card-body card-login">
+            <form id="formCustomerLogin" class="form-horizontal" method="POST" action="https://app.perfectpay.com.br/customer/login/sendCode" onsubmit="if (!window.__cfRLUnblockHandlers) return false; payLoading()" data-cf-modified-8917d8c2b2115c3d9812f8ec-="">
+                <input type="hidden" name="_token" value="EN55sJqtLlGvTp63VqeN3j4h7v7wvsjkkVguIyi9">                <div class="mt-1 mb-4">
+                    <div class="header-section">
+                        <div class="logo-section">
+                            <div class="text-center">
+                                <img src="images/app.svg" class="rounded product-image" alt="...">
+                            </div>
+                        </div>
+                        <div class="language-section">
+                            <div class="languageChange nav-item dropdown">
+    <div class="languageChange__currentLanguage">
+        <img src="images/icon-world-ligth.svg" alt="">
+        <span class="lang">en-US</span>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <p>To access your purchase, we need you to confirm some details about your purchase.</p>
+
+                <!-- Opções de login -->
+                <div class="login-options">
+                    <div class="login-option" data-option="email">
+                        <input type="radio" name="login_method" id="option_email" value="email" class="form-check-input">
+                        <div>
+                            <p class="login-option-label">E-mail</p>
+                            <p class="login-option-description">Enter your e-mail address</p>
+                        </div>
+                    </div>
+
+                    <div class="login-option" data-option="transaction_token">
+                        <input type="radio" name="login_method" id="option_transaction" value="transaction_token" class="form-check-input">
+                        <div>
+                            <p class="login-option-label">Purchase code</p>
+                            <p class="login-option-description">Enter your purchase code</p>
+                        </div>
+                    </div>
+
+                    <div class="login-option" data-option="identification_number">
+                        <input type="radio" name="login_method" id="option_cpf" value="identification_number" class="form-check-input">
+                        <div>
+                            <p class="login-option-label">phone number</p>
+                            <p class="login-option-description">Enter your number</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campos dinâmicos -->
+                <div class="dynamic-field" id="email_field">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" value="" tabindex="1">
+                        <small class="form-text text-danger" id="email_error" style="display: none;">Email must contain @ symbol</small>
+                    </div>
+                </div>
+
+                <div class="dynamic-field" id="transaction_token_field">
+                    <div class="form-group">
+                        <label for="transaction_token">Purchase code</label>
+                        <input type="text" class="form-control" id="transaction_token" name="transaction_token" value="" tabindex="1">
+                    </div>
+                </div>
+
+                <div class="dynamic-field" id="identification_number_field">
+                    <div class="form-group">
+                        <label for="identification_number">Phone Number</label>
+                        <div class="phone-input-wrapper">
+                            <select class="form-control phone-country-select" id="country_code" name="country_code">
+                                <!-- Countries will be added by JavaScript -->
+                            </select>
+                            <input type="text" class="form-control phone-number-input" id="identification_number" name="identification_number" value="" placeholder="Enter phone number" tabindex="1">
+                        </div>
+                        <small class="form-text text-danger" id="phone_error" style="display: none;">Please enter a valid phone number</small>
+                    </div>
+                </div>
+
+                <button type="submit" id="btnCustomerLogin" class="btn btn-primary mt-4 w-100" disabled="">
+                    Access
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- CoreUI and necessary plugins-->
+<script src="js/app.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/select2.min.js"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/pt-BR.js"></script>
+
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/jquery.mask.min.js"></script>
+<script src="js/jquery.maskMoney.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/toastr.min.js"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/moment.min.js"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/daterangepicker.min.js"></script>
+<script src="js/argon.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script src="js/loading.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script src="js/utils.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script src="js/enums.js" type="8917d8c2b2115c3d9812f8ec-text/javascript"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/jquery.validate.js"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript" src="js/pay.validate.js"></script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript">
+    window.QS = function (selector) {
+        return document.querySelector(selector);
+    };
+    window.QSA = function (selector) {
+        let items = {},
+            results = [],
+            length = 0,
+            i = 0;
+        // this doesn’t work on IE 8- and Blackberry Browser
+        results = Array.prototype.slice.call(document.querySelectorAll(selector));
+        length = results.length;
+        // add the results to the items object
+        for (; i < length;) {
+            items[i] = results[i];
+            i++;
+        }
+        // add some additional properties to this items object to
+        // make it look like an array
+        items.length = length;
+        items.splice = [].splice();
+        // add an ‘each’ method to the items
+        items.each = function (callback) {
+            let i = 0;
+            for (; i < length;) {
+                callback.call(items[i]);
+                i++;
+            }
+        }
+        return items;
+    };
+
+    function addEvent(el, eventName, handler) {
+        if (el.addEventListener) {
+            el.addEventListener(eventName, handler);
+        } else {
+            el.attachEvent('on' + eventName, function () {
+                handler.call(el);
+            });
+        }
+    }
+
+    async function perfectSwitchInputAjax(data, url) {
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': 'EN55sJqtLlGvTp63VqeN3j4h7v7wvsjkkVguIyi9'},
+            method: 'POST',
+            url: url,
+        });
+        return $.ajax({
+            data: data,
+            success: function (data) {
+                payLoading("none");
+                toastr["success"]("<b>SUCESSO: </b><br>" + data.message);
+                return true;
+            },
+            error: function (data) {
+                payLoading("none");
+                toastr["error"]("<b>ERRO: </b><br>" + data.responseJSON.message);
+                return false;
+            }
+        });
+    }
+
+    (function ($) {
+        // Set defaults to select2 component
+        $.fn.select2.defaults.set('language', 'br');
+        $.fn.select2.defaults.set("theme", "bootstrap");
+        setDefaultsValidator();
+
+        $(document).on('click', 'a[data-copy_text],a[data-copy_id]', function (event, i) {
+            event.preventDefault();
+            let inputId = $(this).data('copy_id') || '#copyText';
+            let copyText = (inputId === '#copyText' ? $(this).data('copy_text') || '' : $(inputId).val() || '');
+            if (copyText === '') {
+                console.log('textovazio');
+                return false;
+            }
+            if (document.getElementById("copyText") === null) {
+                let input = document.createElement("input");
+                input.type = "text";
+                input.id = "copyText";
+                input.value = copyText;
+                document.getElementsByTagName("body")[0].appendChild(input);
+            } else {
+                document.getElementById("copyText").value = copyText;
+            }
+            document.getElementById("copyText").select();
+            document.execCommand("copy");
+            setTimeout(function () {
+                $('#copyText').remove();
+            }, 1000);
+            toastr["success"](`<small> ${$(inputId).val()} </small> <br> copiado com sucesso!`);
+        });
+        //----------------------------------------------------------------------------------------------------
+        $('.date_range').on('cancel.daterangepicker', function (ev, picker) {
+            $(this).val('');
+        });
+        /** @noinspection  Annotator */
+        /*
+                // ajuste para funcionaro language nos códigos abaixo DD/MM/YYYY        */
+        $('.date_range').daterangepicker({
+            maxDate: moment().endOf("day"),
+            alwaysShowCalendars: true,
+            showCustomRangeLabel: 'Customizado',
+            autoUpdateInput: true,
+            locale: {
+                locale: 'pt-br',
+                format: "DD/MM/YYYY",
+                applyLabel: "Aplicar",
+                cancelLabel: 'Limpar',
+                fromLabel: "De",
+                toLabel: "Até",
+                customRangeLabel: "Customizado",
+                weekLabel: "W",
+                daysOfWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                firstDay: 0,
+            },
+            ranges: {
+                'Hoje': [moment(), moment()],
+                'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Últimos 7 dias': [moment().subtract(6, 'days'), moment()],
+                'Últimos 14 dias': [moment().subtract(13, 'days'), moment()],
+                'Últimos 30 dias': [moment().subtract(29, 'days'), moment()],
+                'Esta semana': [moment().startOf('week'), moment().endOf('week')],
+                'Semana passada': [moment().subtract(1, 'weeks').startOf('week'), moment().subtract(1, 'weeks').endOf('week')],
+                'Este mês': [moment().startOf('month'), moment().endOf('month')],
+                'Mês passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            buttonClasses: 'btn font-weight-600',
+            applyButtonClasses: 'btn-secondary',
+            cancelButtonClasses: 'text-gray'
+        });
+
+        $('.date_range').on('cancel.daterangepicker', function (ev, picker) {
+            $(this).val('');
+        });
+
+        $('.single_date_picker').daterangepicker({
+            singleDatePicker: true,
+            alwaysShowCalendars: true,
+            showCustomRangeLabel: 'Customizado',
+            autoUpdateInput: true,
+            locale: {
+                locale: 'pt-br',
+                format: "DD/MM/YYYY",
+                weekLabel: "W",
+                daysOfWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                firstDay: 0,
+            },
+        });
+                $('#order_date_range').val('');
+                        $('#approved_date_range').val('');
+        
+            toastr.options = {"positionClass": "toast-top-right", "target": "#main"}
+                                                                
+        $(document).on('click', '.nav-dropdown-toggle', function (e) {
+            e.preventDefault();
+            // $('.nav-dropdown').removeClass('open');
+            $(this).toggleClass('open');
+            $(this).closest('li').toggleClass('open');
+        })
+
+        $('.modal').on('hidden.bs.modal', function (event) {
+            $(this).removeClass('fv-modal-stack');
+            $('body').data('fv_open_modals', $('body').data('fv_open_modals') - 1);
+        });
+
+        $('.modal').on('shown.bs.modal', function (event) {
+            // keep track of the number of open modals
+            if (typeof ($('body').data('fv_open_modals')) == 'undefined') {
+                $('body').data('fv_open_modals', 0);
+            }
+            // if the z-index of this modal has been set, ignore.
+            if ($(this).hasClass('fv-modal-stack')) {
+                return;
+            }
+            $(this).addClass('fv-modal-stack');
+            $('body').data('fv_open_modals', $('body').data('fv_open_modals') + 1);
+            $(this).css('z-index', 1040 + (10 * $('body').data('fv_open_modals')));
+            $('.modal-backdrop').not('.fv-modal-stack').css('z-index', 1039 + (10 * $('body').data('fv_open_modals')));
+            $('.modal-backdrop').not('fv-modal-stack').addClass('fv-modal-stack');
+        });
+
+    }(jQuery));
+</script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript">!function (e, t, n) {
+        function a() {
+            var e = t.getElementsByTagName("script")[0], n = t.createElement("script");
+            n.type = "text/javascript", n.async = !0, n.src = "https://beacon-v2.helpscout.net", e.parentNode.insertBefore(n, e)
+        }
+        if (e.Beacon = n = function (t, n, a) {
+            e.Beacon.readyQueue.push({method: t, options: n, data: a})
+        }, n.readyQueue = [], "complete" === t.readyState) return a();
+        e.attachEvent ? e.attachEvent("onload", a) : e.addEventListener("load", a, !1)
+    }(window, document, window.Beacon || function () {
+    });</script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript">window.Beacon('init', '4fbfb3b3-a039-40f8-9316-bbf77d6ac773')</script>
+    <script type="8917d8c2b2115c3d9812f8ec-text/javascript">
+        $(function () {
+            // Lista de países com bandeiras e códigos telefônicos
+            const countries = [
+                { code: 'US', name: 'United States', dial: '+1', flag: '🇺🇸' },
+                { code: 'BR', name: 'Brazil', dial: '+55', flag: '🇧🇷' },
+                { code: 'MX', name: 'Mexico', dial: '+52', flag: '🇲🇽' },
+                { code: 'AR', name: 'Argentina', dial: '+54', flag: '🇦🇷' },
+                { code: 'CL', name: 'Chile', dial: '+56', flag: '🇨🇱' },
+                { code: 'CO', name: 'Colombia', dial: '+57', flag: '🇨🇴' },
+                { code: 'PE', name: 'Peru', dial: '+51', flag: '🇵🇪' },
+                { code: 'VE', name: 'Venezuela', dial: '+58', flag: '🇻🇪' },
+                { code: 'EC', name: 'Ecuador', dial: '+593', flag: '🇪🇨' },
+                { code: 'GT', name: 'Guatemala', dial: '+502', flag: '🇬🇹' },
+                { code: 'CU', name: 'Cuba', dial: '+53', flag: '🇨🇺' },
+                { code: 'BO', name: 'Bolivia', dial: '+591', flag: '🇧🇴' },
+                { code: 'DO', name: 'Dominican Republic', dial: '+1', flag: '🇩🇴' },
+                { code: 'HN', name: 'Honduras', dial: '+504', flag: '🇭🇳' },
+                { code: 'PY', name: 'Paraguay', dial: '+595', flag: '🇵🇾' },
+                { code: 'SV', name: 'El Salvador', dial: '+503', flag: '🇸🇻' },
+                { code: 'NI', name: 'Nicaragua', dial: '+505', flag: '🇳🇮' },
+                { code: 'CR', name: 'Costa Rica', dial: '+506', flag: '🇨🇷' },
+                { code: 'PA', name: 'Panama', dial: '+507', flag: '🇵🇦' },
+                { code: 'UY', name: 'Uruguay', dial: '+598', flag: '🇺🇾' },
+                { code: 'GB', name: 'United Kingdom', dial: '+44', flag: '🇬🇧' },
+                { code: 'CA', name: 'Canada', dial: '+1', flag: '🇨🇦' },
+                { code: 'FR', name: 'France', dial: '+33', flag: '🇫🇷' },
+                { code: 'DE', name: 'Germany', dial: '+49', flag: '🇩🇪' },
+                { code: 'IT', name: 'Italy', dial: '+39', flag: '🇮🇹' },
+                { code: 'ES', name: 'Spain', dial: '+34', flag: '🇪🇸' },
+                { code: 'PT', name: 'Portugal', dial: '+351', flag: '🇵🇹' },
+                { code: 'NL', name: 'Netherlands', dial: '+31', flag: '🇳🇱' },
+                { code: 'BE', name: 'Belgium', dial: '+32', flag: '🇧🇪' },
+                { code: 'CH', name: 'Switzerland', dial: '+41', flag: '🇨🇭' },
+                { code: 'AT', name: 'Austria', dial: '+43', flag: '🇦🇹' },
+                { code: 'SE', name: 'Sweden', dial: '+46', flag: '🇸🇪' },
+                { code: 'NO', name: 'Norway', dial: '+47', flag: '🇳🇴' },
+                { code: 'DK', name: 'Denmark', dial: '+45', flag: '🇩🇰' },
+                { code: 'FI', name: 'Finland', dial: '+358', flag: '🇫🇮' },
+                { code: 'PL', name: 'Poland', dial: '+48', flag: '🇵🇱' },
+                { code: 'IE', name: 'Ireland', dial: '+353', flag: '🇮🇪' },
+                { code: 'IS', name: 'Iceland', dial: '+354', flag: '🇮🇸' },
+                { code: 'GR', name: 'Greece', dial: '+30', flag: '🇬🇷' },
+                { code: 'HU', name: 'Hungary', dial: '+36', flag: '🇭🇺' },
+                { code: 'CZ', name: 'Czech Republic', dial: '+420', flag: '🇨🇿' },
+                { code: 'RO', name: 'Romania', dial: '+40', flag: '🇷🇴' },
+                { code: 'BG', name: 'Bulgaria', dial: '+359', flag: '🇧🇬' },
+                { code: 'HR', name: 'Croatia', dial: '+385', flag: '🇭🇷' },
+                { code: 'RS', name: 'Serbia', dial: '+381', flag: '🇷🇸' },
+                { code: 'SK', name: 'Slovakia', dial: '+421', flag: '🇸🇰' },
+                { code: 'SI', name: 'Slovenia', dial: '+386', flag: '🇸🇮' },
+                { code: 'LT', name: 'Lithuania', dial: '+370', flag: '🇱🇹' },
+                { code: 'LV', name: 'Latvia', dial: '+371', flag: '🇱🇻' },
+                { code: 'EE', name: 'Estonia', dial: '+372', flag: '🇪🇪' },
+                { code: 'RU', name: 'Russia', dial: '+7', flag: '🇷🇺' },
+                { code: 'UA', name: 'Ukraine', dial: '+380', flag: '🇺🇦' },
+                { code: 'BY', name: 'Belarus', dial: '+375', flag: '🇧🇾' },
+                { code: 'JP', name: 'Japan', dial: '+81', flag: '🇯🇵' },
+                { code: 'CN', name: 'China', dial: '+86', flag: '🇨🇳' },
+                { code: 'KR', name: 'South Korea', dial: '+82', flag: '🇰🇷' },
+                { code: 'IN', name: 'India', dial: '+91', flag: '🇮🇳' },
+                { code: 'ID', name: 'Indonesia', dial: '+62', flag: '🇮🇩' },
+                { code: 'TH', name: 'Thailand', dial: '+66', flag: '🇹🇭' },
+                { code: 'VN', name: 'Vietnam', dial: '+84', flag: '🇻🇳' },
+                { code: 'PH', name: 'Philippines', dial: '+63', flag: '🇵🇭' },
+                { code: 'MY', name: 'Malaysia', dial: '+60', flag: '🇲🇾' },
+                { code: 'SG', name: 'Singapore', dial: '+65', flag: '🇸🇬' },
+                { code: 'TW', name: 'Taiwan', dial: '+886', flag: '🇹🇼' },
+                { code: 'HK', name: 'Hong Kong', dial: '+852', flag: '🇭🇰' },
+                { code: 'AU', name: 'Australia', dial: '+61', flag: '🇦🇺' },
+                { code: 'NZ', name: 'New Zealand', dial: '+64', flag: '🇳🇿' },
+                { code: 'IL', name: 'Israel', dial: '+972', flag: '🇮🇱' },
+                { code: 'SA', name: 'Saudi Arabia', dial: '+966', flag: '🇸🇦' },
+                { code: 'AE', name: 'UAE', dial: '+971', flag: '🇦🇪' },
+                { code: 'ZA', name: 'South Africa', dial: '+27', flag: '🇿🇦' },
+                { code: 'EG', name: 'Egypt', dial: '+20', flag: '🇪🇬' },
+                { code: 'NG', name: 'Nigeria', dial: '+234', flag: '🇳🇬' },
+                { code: 'KE', name: 'Kenya', dial: '+254', flag: '🇰🇪' },
+                { code: 'GH', name: 'Ghana', dial: '+233', flag: '🇬🇭' },
+                { code: 'TZ', name: 'Tanzania', dial: '+255', flag: '🇹🇿' },
+                { code: 'UG', name: 'Uganda', dial: '+256', flag: '🇺🇬' },
+                { code: 'ET', name: 'Ethiopia', dial: '+251', flag: '🇪🇹' },
+                { code: 'MA', name: 'Morocco', dial: '+212', flag: '🇲🇦' },
+                { code: 'DZ', name: 'Algeria', dial: '+213', flag: '🇩🇿' },
+                { code: 'TN', name: 'Tunisia', dial: '+216', flag: '🇹🇳' },
+                { code: 'CI', name: 'Ivory Coast', dial: '+225', flag: '🇨🇮' },
+                { code: 'SN', name: 'Senegal', dial: '+221', flag: '🇸🇳' },
+                { code: 'CM', name: 'Cameroon', dial: '+237', flag: '🇨🇲' },
+                { code: 'AO', name: 'Angola', dial: '+244', flag: '🇦🇴' },
+                { code: 'MZ', name: 'Mozambique', dial: '+258', flag: '🇲🇿' },
+                { code: 'ZM', name: 'Zambia', dial: '+260', flag: '🇿🇲' },
+                { code: 'ZW', name: 'Zimbabwe', dial: '+263', flag: '🇿🇼' },
+                { code: 'NA', name: 'Namibia', dial: '+264', flag: '🇳🇦' },
+                { code: 'BW', name: 'Botswana', dial: '+267', flag: '🇧🇼' },
+                { code: 'MW', name: 'Malawi', dial: '+265', flag: '🇲🇼' },
+                { code: 'MZ', name: 'Madagascar', dial: '+261', flag: '🇲🇬' },
+                { code: 'MU', name: 'Mauritius', dial: '+230', flag: '🇲🇺' },
+                { code: 'LR', name: 'Liberia', dial: '+231', flag: '🇱🇷' },
+                { code: 'SL', name: 'Sierra Leone', dial: '+232', flag: '🇸🇱' }
+            ];
+
+            // Inicializar seletor de país
+            function initCountrySelector() {
+                const select = $('#country_code');
+                const selectData = countries.map(country => ({
+                    id: country.dial,
+                    text: `${country.flag} ${country.dial}`,
+                    name: country.name,
+                    code: country.code
+                }));
+
+                select.select2({
+                    data: selectData,
+                    templateResult: formatCountryResult,
+                    templateSelection: formatCountrySelection,
+                    placeholder: 'Select',
+                    allowClear: false,
+                    width: '80px',
+                    minimumResultsForSearch: Infinity,
+                    matcher: function(params, data) {
+                        // Se não há termo de busca, retorna todos
+                        if (!params.term) {
+                            return data;
+                        }
+                        // Busca por nome do país ou código telefônico
+                        var term = params.term.toLowerCase();
+                        var text = data.text.toLowerCase();
+                        var name = data.name ? data.name.toLowerCase() : '';
+                        var id = data.id ? data.id.toLowerCase() : '';
+                        
+                        if (text.indexOf(term) > -1 || name.indexOf(term) > -1 || id.indexOf(term) > -1) {
+                            return data;
+                        }
+                        return null;
+                    }
+                });
+
+                // Selecionar US como padrão
+                select.val('+1').trigger('change');
+            }
+
+            function formatCountrySelection(country) {
+                if (!country.id) return country.text;
+                // No campo selecionado, mostra apenas o código
+                return $('<span>' + country.id + '</span>');
+            }
+            
+            function formatCountryResult(country) {
+                if (!country.id) return country.text;
+                // No dropdown, mostra a bandeira e o código
+                return $('<span>' + country.text + '</span>');
+            }
+
+            // Seleção de opção de login
+            $('.login-option').on('click', function() {
+                const option = $(this).data('option');
+                const radio = $(this).find('input[type="radio"]');
+
+                // Remove seleção anterior
+                $('.login-option').removeClass('selected');
+                $('.dynamic-field').removeClass('show');
+                $('.form-text.text-danger').hide();
+
+                // Seleciona nova opção
+                $(this).addClass('selected');
+                radio.prop('checked', true);
+
+                // Mostra campo correspondente
+                $(`#${option}_field`).addClass('show');
+
+                // Habilita botão
+                $('#btnCustomerLogin').prop('disabled', false);
+
+                // Foca no campo
+                setTimeout(() => {
+                    const field = $(`#${option}_field input, #${option}_field select`).first();
+                    if (field.is('select')) {
+                        field.select2('open');
+                    } else {
+                        field.focus();
+                    }
+                }, 100);
+
+                // Se for telefone, inicializa o seletor de país
+                if (option === 'identification_number' && !$('#country_code').hasClass('select2-hidden-accessible')) {
+                    initCountrySelector();
+                }
+            });
+
+            // Validação de email
+            $('#email').on('blur', function() {
+                const email = $(this).val().trim();
+                if (email && !email.includes('@')) {
+                    $('#email_error').show();
+                } else {
+                    $('#email_error').hide();
+                }
+            });
+
+            // Validação de telefone
+            $('#identification_number').on('input', function() {
+                const phone = $(this).val().replace(/\D/g, '');
+                if (phone.length < 8) {
+                    $('#phone_error').show();
+                } else {
+                    $('#phone_error').hide();
+                }
+            });
+
+            // Validação do formulário no submit
+            $('#formCustomerLogin').on('submit', function(e) {
+                e.preventDefault(); // Impede o submit padrão
+                
+                const selectedMethod = $('input[name="login_method"]:checked').val();
+                let isValid = true;
+
+                if (selectedMethod === 'email') {
+                    const email = $('#email').val().trim();
+                    if (!email || !email.includes('@')) {
+                        $('#email_error').show();
+                        isValid = false;
+                    }
+                } else if (selectedMethod === 'identification_number') {
+                    const phone = $('#identification_number').val().replace(/\D/g, '');
+                    if (!phone || phone.length < 8) {
+                        $('#phone_error').show();
+                        isValid = false;
+                    }
+                } else if (selectedMethod === 'transaction_token') {
+                    const token = $('#transaction_token').val().trim();
+                    if (!token) {
+                        alert('Please enter your purchase code');
+                        isValid = false;
+                    }
+                }
+
+                if (!isValid) {
+                    return false;
+                }
+                
+                // Redireciona para a página de quiz
+                window.location.href = 'refund-quiz.html';
+            });
+
+            // Se já tem valor pré-preenchido, seleciona automaticamente
+            if ($('#email').val()) {
+                $('.login-option[data-option="email"]').click();
+            } else if ($('#identification_number').val()) {
+                $('.login-option[data-option="identification_number"]').click();
+            }
+        });
+    </script>
+    <div id="animate_icon_overlay"></div>
+<div class="animate_icon" style="display: none;">
+    <div class="custom-loading-loader">
+        <div class="-mr-2 -mb-2"></div>
+        <div class="-mb-2"></div>
+        <div class="-mr-2"></div>
+        <div></div>
+    </div>
+</div>
+<style>
+    #animate_icon_overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #EDEFF1;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        z-index: 11000;
+        cursor: pointer;
+    }
+    .animate_icon {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 12000;
+        overflow: auto;
+        top: 0;
+    }
+    .-mr-2 {
+        margin-right: -55px;
+    }
+    .-mb-2 {
+        margin-bottom: -60px;
+    }
+    .custom-loading-loader {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .custom-loading-loader div {
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+        background: var(--gradient_primary);
+        box-shadow: 0 3px 6px #00000029;
+        animation: in-cube-one 1s infinite forwards;
+    }
+    .custom-loading-loader div:nth-child(2) {
+        animation: in-cube-two 1s infinite;
+    }
+    .custom-loading-loader div:nth-child(3) {
+        animation: in-cube-four 1s infinite;
+        margin-left: 5px;
+    }
+    .custom-loading-loader div:nth-child(4) {
+        animation: in-cube-three 1s infinite;
+    }
+    @keyframes  in-cube-one {
+        0% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+    }
+    @keyframes  in-cube-two {
+        0%,
+        20% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+        40%,
+        60%,
+        80% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+    }
+    @keyframes  in-cube-three {
+        0%,
+        20%,
+        40% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+        60%,
+        80% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+    }
+    @keyframes  in-cube-four {
+        0%,
+        20%,
+        40%,
+        60% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.1);
+            opacity: 0;
+        }
+    }
+</style>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript">
+    // mostrar: payLoading();
+    // esconder: payLoading("none");
+    function payLoading(display = 'block', zIndex = null) {
+        $('#animate_icon_overlay').css('display', display);
+        $('.animate_icon').css('display', display);
+
+        if (zIndex !== null) {
+            $('#animate_icon_overlay').css('zIndex', zIndex);
+            $('.animate_icon').css('zIndex', zIndex + 1);
+
+        }
+    }
+    function payLoadingModal(display = 'block', zIndex = null) {
+        $('.modal').modal('hide');
+        payLoading(display, zIndex);
+    }
+</script>
+<script type="8917d8c2b2115c3d9812f8ec-text/javascript">
+    $(function () {
+        /* $("#identification_number").inputFilter(function (value) {
+             return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+         }, "Only digits allowed");*/
+
+        
+        $(document).ready(function () {
+            $("img").on("error", function () {
+                $(this).attr('src', 'https://app.perfectpay.com.br/img/default/image.svg');
+            });
+        });
+    });
+</script>
+<script src="js/rocket-loader.min.js" data-cf-settings="8917d8c2b2115c3d9812f8ec-|49" defer=""></script><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" version":"2024.11.0","token":"fd12254b18f74c1abe1ead8dbf24a1f6","server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}"="" crossorigin="anonymous"></script>
+
+
+</body></html>

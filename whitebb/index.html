@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Quiz about 20 sacred manuscripts related to Jesus Christ">
+    <title>Quiz: 20 Sacred Manuscripts of Jesus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+            --accent-color: #d4af37;
+            --success-color: #2e7d32;
+            --error-color: #d32f2f;
+            --text-color: #333;
+            --bg-color: #fafafa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .progress-container {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), #ffd700);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .question-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        .question-number {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: #e8edf5;
+            border-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .option.correct {
+            background: linear-gradient(135deg, #2e7d32, #4caf50);
+            color: white;
+            border-color: #2e7d32;
+        }
+
+        .option.incorrect {
+            background: linear-gradient(135deg, var(--error-color), #ef5350);
+            color: white;
+            border-color: var(--error-color);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-color), #ffd700);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result-container {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .result-container.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .result-score {
+            font-size: 3rem;
+            color: var(--accent-color);
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        .result-message {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .manuscript-info {
+            background: #f8f9fa;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .manuscript-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .manuscript-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .start-screen {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .start-screen h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .start-screen p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(30, 60, 114, 0.3);
+        }
+
+        .btn-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .quiz-container {
+                padding: 25px;
+            }
+
+            .result-title {
+                font-size: 2rem;
+            }
+
+            .result-score {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✝️ Quiz: Sacred Manuscripts</h1>
+            <p>Test your knowledge about 20 sacred manuscripts related to Jesus Christ</p>
+        </div>
+
+        <div class="quiz-container">
+            <!-- Start Screen -->
+            <div class="start-screen" id="startScreen">
+                <h2>Welcome to the Sacred Manuscripts Quiz</h2>
+                <p>This quiz contains 20 questions about biblical manuscripts and sacred texts related to the life of Jesus Christ.<br><br>
+                You will be tested on their origin, historical importance, content, and archaeological discoveries.<br><br>
+                <strong>Good luck!</strong></p>
+                <button class="btn-start" onclick="startQuiz()">Start Quiz</button>
+            </div>
+
+            <!-- Quiz Questions -->
+            <div id="quizContent" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Question 1 of 20</div>
+                </div>
+
+                <div id="questionsContainer"></div>
+
+                <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Answer</button>
+            </div>
+
+            <!-- Results Screen -->
+            <div class="result-container" id="resultContainer">
+                <div class="result-icon" id="resultIcon">📜</div>
+                <h2 class="result-title">Quiz Completed!</h2>
+                <div class="result-score" id="resultScore">0/20</div>
+                <div class="result-message" id="resultMessage"></div>
+                <button class="btn" onclick="restartQuiz()">Retake Quiz</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Sacred Manuscripts Quiz | Developed with dedication</p>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the oldest New Testament manuscript that contains the four gospels?",
+                options: [
+                    "Codex Sinaiticus",
+                    "Codex Vaticanus",
+                    "Dead Sea Scrolls",
+                    "Papyrus P52"
+                ],
+                correct: 0,
+                info: "Codex Sinaiticus, dated to the 4th century, is one of the most important biblical manuscripts and contains the oldest complete Bible."
+            },
+            {
+                question: "Papyrus P52, found in 1920, contains fragments of which gospel?",
+                options: [
+                    "Matthew",
+                    "Mark",
+                    "Luke",
+                    "John"
+                ],
+                correct: 3,
+                info: "Papyrus P52 is the oldest fragment of the New Testament, dated to around 125 AD, containing passages from the Gospel of John."
+            },
+            {
+                question: "Where were the Dead Sea Scrolls discovered?",
+                options: [
+                    "Mount Sinai",
+                    "Qumran Caves",
+                    "Library of Alexandria",
+                    "St. Benedict Monastery"
+                ],
+                correct: 1,
+                info: "The Dead Sea Scrolls were discovered between 1947 and 1956 in 11 caves near the archaeological site of Qumran, by the Dead Sea."
+            },
+            {
+                question: "Which manuscript contains the oldest complete text of the book of Isaiah?",
+                options: [
+                    "Codex Alexandrinus",
+                    "Great Isaiah Scroll from Qumran",
+                    "Codex Bezae",
+                    "Chester Beatty Papyrus"
+                ],
+                correct: 1,
+                info: "The Great Isaiah Scroll (1QIsaᵃ) found at Qumran is the most complete and oldest manuscript of the book of Isaiah, dated to approximately 125 BC."
+            },
+            {
+                question: "Where is Codex Vaticanus kept?",
+                options: [
+                    "Louvre Museum, Paris",
+                    "British Library, London",
+                    "Vatican Apostolic Library",
+                    "Israel Museum, Jerusalem"
+                ],
+                correct: 2,
+                info: "Codex Vaticanus has been kept in the Vatican Apostolic Library since at least the 15th century and dates from the 4th century."
+            },
+            {
+                question: "Approximately how many New Testament biblical manuscripts exist?",
+                options: [
+                    "Approximately 5,000",
+                    "More than 5,800",
+                    "Around 3,000",
+                    "Less than 2,000"
+                ],
+                correct: 1,
+                info: "There are more than 5,800 complete or fragmentary Greek manuscripts of the New Testament, plus thousands in other languages."
+            },
+            {
+                question: "What is the oldest known fragment of the New Testament?",
+                options: [
+                    "Papyrus P75",
+                    "Papyrus P52",
+                    "Papyrus P46",
+                    "Codex Sinaiticus"
+                ],
+                correct: 1,
+                info: "Papyrus P52 (Rylands Papyrus 457) contains fragments from the Gospel of John 18:31-33, dated to around 125 AD, making it the oldest."
+            },
+            {
+                question: "What is Codex Leningradensis an important manuscript of?",
+                options: [
+                    "New Testament in Greek",
+                    "Old Testament in Hebrew",
+                    "Gospels in Aramaic",
+                    "Psalms in Latin"
+                ],
+                correct: 1,
+                info: "Codex Leningradensis (1008 AD) is the oldest complete Hebrew manuscript of the Old Testament, the basis for many modern Bibles."
+            },
+            {
+                question: "Which apocryphal gospel mentions the childhood of Jesus?",
+                options: [
+                    "Gospel of Thomas",
+                    "Gospel of Philip",
+                    "Infancy Gospel of Thomas",
+                    "Gospel of Mary"
+                ],
+                correct: 2,
+                info: "The Infancy Gospel of Thomas (2nd century) contains stories about Jesus' childhood but is not considered canonical."
+            },
+            {
+                question: "Papyrus P46 contains letters from which apostle?",
+                options: [
+                    "Peter",
+                    "John",
+                    "Paul",
+                    "James"
+                ],
+                correct: 2,
+                info: "Papyrus P46 (Chester Beatty II), dated to around 200 AD, contains nine epistles of Paul, making it one of the oldest collections."
+            },
+            {
+                question: "Where was Codex Sinaiticus discovered?",
+                options: [
+                    "Vatican Library",
+                    "St. Catherine's Monastery, Mount Sinai",
+                    "Qumran Caves",
+                    "Library of Alexandria"
+                ],
+                correct: 1,
+                info: "Codex Sinaiticus was discovered in 1844 by Constantin von Tischendorf at St. Catherine's Monastery on Mount Sinai, Egypt."
+            },
+            {
+                question: "Which manuscript contains the oldest complete version of the New Testament?",
+                options: [
+                    "Codex Vaticanus",
+                    "Codex Sinaiticus",
+                    "Codex Alexandrinus",
+                    "Codex Bezae"
+                ],
+                correct: 1,
+                info: "Codex Sinaiticus (4th century) is the only ancient manuscript that contains the complete New Testament in uncial Greek."
+            },
+            {
+                question: "What are the 'Nag Hammadi texts'?",
+                options: [
+                    "Old Testament manuscripts",
+                    "Apocryphal gospels and Gnostic texts",
+                    "Letters from the apostles",
+                    "Medieval biblical commentaries"
+                ],
+                correct: 1,
+                info: "The Nag Hammadi texts (discovered in 1945) are a collection of Gnostic writings and apocryphal gospels, including the Gospel of Thomas."
+            },
+            {
+                question: "Which canonical gospel has the fewest ancient manuscript witnesses?",
+                options: [
+                    "Matthew",
+                    "Mark",
+                    "Luke",
+                    "John"
+                ],
+                correct: 1,
+                info: "Among the four canonical gospels, Mark has relatively fewer ancient manuscripts, though there are still hundreds of witnesses."
+            },
+            {
+                question: "What does 'Codex' mean in Latin?",
+                options: [
+                    "Parchment",
+                    "Book with pages",
+                    "Ancient scroll",
+                    "Clay tablet"
+                ],
+                correct: 1,
+                info: "Codex (plural: codices) is a book made of bound parchment or papyrus leaves, a format that replaced scrolls in antiquity."
+            },
+            {
+                question: "Which manuscript contains the famous 'Pericope Adulterae' passage (John 7:53-8:11)?",
+                options: [
+                    "Only Codex Vaticanus",
+                    "Only Codex Sinaiticus",
+                    "Both codices",
+                    "Neither of the main codices"
+                ],
+                correct: 3,
+                info: "The passage of the adulterous woman (John 7:53-8:11) does not appear in the oldest manuscripts (Sinaiticus and Vaticanus), being a later addition."
+            },
+            {
+                question: "Papyrus P75 contains parts of which gospels?",
+                options: [
+                    "Matthew and Mark",
+                    "Mark and Luke",
+                    "Luke and John",
+                    "Matthew and John"
+                ],
+                correct: 2,
+                info: "Papyrus P75 (Chester Beatty I), dated to 175-225 AD, contains large portions of the gospels of Luke and John."
+            },
+            {
+                question: "What is the importance of the Dead Sea Scrolls for biblical studies?",
+                options: [
+                    "They proved the Bible was invented",
+                    "They confirmed the accurate preservation of the biblical text",
+                    "They revealed only texts unrelated to the Bible",
+                    "They showed the Old Testament didn't exist before"
+                ],
+                correct: 1,
+                info: "The Dead Sea Scrolls confirmed the accuracy of Old Testament textual transmission, showing few variations over more than a thousand years."
+            },
+            {
+                question: "Codex Alexandrinus was named after what?",
+                options: [
+                    "Alexander the Great",
+                    "The city of Alexandria, Egypt",
+                    "Pope Alexander III",
+                    "St. Alexander of Jerusalem"
+                ],
+                correct: 1,
+                info: "Codex Alexandrinus (5th century) received this name because it was brought from Alexandria, Egypt, to the British Library in 1627."
+            },
+            {
+                question: "Which manuscript is known for being one of the first to use 'nomina sacra' (sacred names abbreviated)?",
+                options: [
+                    "Papyrus P52",
+                    "Papyrus P46",
+                    "Codex Bezae",
+                    "Codex Leningradensis"
+                ],
+                correct: 1,
+                info: "Papyrus P46 already shows the use of 'nomina sacra' (sacred abbreviations like ΘΣ for Θεός), a common practice in ancient Christian manuscripts."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let answered = false;
+
+        function startQuiz() {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizContent').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            selectedAnswer = null;
+            const question = questions[currentQuestion];
+            const container = document.getElementById('questionsContainer');
+            
+            container.innerHTML = `
+                <div class="question-container active">
+                    <div class="question-number">Manuscript ${currentQuestion + 1} of ${questions.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">
+                        ${question.options.map((option, index) => `
+                            <div class="option" onclick="selectOption(${index})" id="option${index}">
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            updateProgress();
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('nextBtn').textContent = 'Select an answer';
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+
+            selectedAnswer = index;
+            const question = questions[currentQuestion];
+            
+            // Remove previous selections
+            for (let i = 0; i < 4; i++) {
+                const option = document.getElementById(`option${i}`);
+                option.classList.remove('selected');
+            }
+
+            // Highlight selected
+            document.getElementById(`option${index}`).classList.add('selected');
+            document.getElementById('nextBtn').disabled = false;
+            document.getElementById('nextBtn').textContent = 'Confirm Answer';
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+
+            answered = true;
+            const question = questions[currentQuestion];
+            const isCorrect = selectedAnswer === question.correct;
+
+            // Show correct/incorrect
+            for (let i = 0; i < 4; i++) {
+                const option = document.getElementById(`option${i}`);
+                option.classList.remove('selected');
+                option.style.pointerEvents = 'none';
+                
+                if (i === question.correct) {
+                    option.classList.add('correct');
+                } else if (i === selectedAnswer && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+            }
+
+            if (isCorrect) {
+                score++;
+            }
+
+            // Show manuscript info
+            setTimeout(() => {
+                const container = document.getElementById('questionsContainer');
+                container.innerHTML += `
+                    <div class="manuscript-info">
+                        <h3>📚 Manuscript Information</h3>
+                        <p>${question.info}</p>
+                    </div>
+                `;
+
+                document.getElementById('nextBtn').textContent = currentQuestion < questions.length - 1 ? 'Next Question' : 'View Results';
+                document.getElementById('nextBtn').onclick = () => {
+                    if (currentQuestion < questions.length - 1) {
+                        currentQuestion++;
+                        showQuestion();
+                    } else {
+                        showResults();
+                    }
+                };
+            }, 1000);
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+        }
+
+        function showResults() {
+            document.getElementById('quizContent').style.display = 'none';
+            const resultContainer = document.getElementById('resultContainer');
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            let icon = '📜';
+            let message = '';
+            
+            if (percentage === 100) {
+                icon = '🏆';
+                message = 'Congratulations! You are a true expert on sacred manuscripts! Perfect knowledge of biblical texts!';
+            } else if (percentage >= 80) {
+                icon = '⭐';
+                message = 'Excellent! You demonstrate very solid knowledge about sacred manuscripts and biblical history!';
+            } else if (percentage >= 60) {
+                icon = '✨';
+                message = 'Good work! You have reasonable knowledge about the manuscripts. Keep studying!';
+            } else if (percentage >= 40) {
+                icon = '📖';
+                message = 'Not bad! You have some foundation about manuscripts. With more study, you can improve a lot!';
+            } else {
+                icon = '💪';
+                message = 'Keep studying! Sacred manuscripts are a fascinating field of knowledge. Don\'t give up!';
+            }
+
+            document.getElementById('resultIcon').textContent = icon;
+            document.getElementById('resultScore').textContent = `${score}/${questions.length} (${percentage}%)`;
+            document.getElementById('resultMessage').textContent = message;
+            
+            resultContainer.classList.add('show');
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            answered = false;
+            
+            document.getElementById('resultContainer').classList.remove('show');
+            document.getElementById('startScreen').style.display = 'block';
+            document.getElementById('quizContent').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
