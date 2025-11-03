@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJfecg.woff2" crossorigin=""><link rel="preload" as="font" href="https://fonts.gstatic.com/s/roboto/v48/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAo.woff2" crossorigin=""><link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v30/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w5aXo.woff2" crossorigin=""><style>@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w0aXpsog.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w9aXpsog.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w2aXpsog.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w3aXpsog.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu173w5aXo.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmZiArmlw.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmQiArmlw.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmYiArmlw.woff2) format('woff2');unicode-range:U+1F00-1FFF}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmXiArmlw.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVnoiArmlw.woff2) format('woff2');unicode-range:U+0302-0303,U+0305,U+0307-0308,U+0310,U+0312,U+0315,U+031A,U+0326-0327,U+032C,U+032F-0330,U+0332-0333,U+0338,U+033A,U+0346,U+034D,U+0391-03A1,U+03A3-03A9,U+03B1-03C9,U+03D1,U+03D5-03D6,U+03F0-03F1,U+03F4-03F5,U+2016-2017,U+2034-2038,U+203C,U+2040,U+2043,U+2047,U+2050,U+2057,U+205F,U+2070-2071,U+2074-208E,U+2090-209C,U+20D0-20DC,U+20E1,U+20E5-20EF,U+2100-2112,U+2114-2115,U+2117-2121,U+2123-214F,U+2190,U+2192,U+2194-21AE,U+21B0-21E5,U+21F1-21F2,U+21F4-2211,U+2213-2214,U+2216-22FF,U+2308-230B,U+2310,U+2319,U+231C-2321,U+2336-237A,U+237C,U+2395,U+239B-23B7,U+23D0,U+23DC-23E1,U+2474-2475,U+25AF,U+25B3,U+25B7,U+25BD,U+25C1,U+25CA,U+25CC,U+25FB,U+266D-266F,U+27C0-27FF,U+2900-2AFF,U+2B0E-2B11,U+2B30-2B4C,U+2BFE,U+3030,U+FF5B,U+FF5D,U+1D400-1D7FF,U+1EE00-1EEFF}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVn6iArmlw.woff2) format('woff2');unicode-range:U+0001-000C,U+000E-001F,U+007F-009F,U+20DD-20E0,U+20E2-20E4,U+2150-218F,U+2190,U+2192,U+2194-2199,U+21AF,U+21E6-21F0,U+21F3,U+2218-2219,U+2299,U+22C4-22C6,U+2300-243F,U+2440-244A,U+2460-24FF,U+25A0-27BF,U+2800-28FF,U+2921-2922,U+2981,U+29BF,U+29EB,U+2B00-2BFF,U+4DC0-4DFF,U+FFF9-FFFB,U+10140-1018E,U+10190-1019C,U+101A0,U+101D0-101FD,U+102E0-102FB,U+10E60-10E7E,U+1D2C0-1D2D3,U+1D2E0-1D37F,U+1F000-1F0FF,U+1F100-1F1AD,U+1F1E6-1F1FF,U+1F30D-1F30F,U+1F315,U+1F31C,U+1F31E,U+1F320-1F32C,U+1F336,U+1F378,U+1F37D,U+1F382,U+1F393-1F39F,U+1F3A7-1F3A8,U+1F3AC-1F3AF,U+1F3C2,U+1F3C4-1F3C6,U+1F3CA-1F3CE,U+1F3D4-1F3E0,U+1F3ED,U+1F3F1-1F3F3,U+1F3F5-1F3F7,U+1F408,U+1F415,U+1F41F,U+1F426,U+1F43F,U+1F441-1F442,U+1F444,U+1F446-1F449,U+1F44C-1F44E,U+1F453,U+1F46A,U+1F47D,U+1F4A3,U+1F4B0,U+1F4B3,U+1F4B9,U+1F4BB,U+1F4BF,U+1F4C8-1F4CB,U+1F4D6,U+1F4DA,U+1F4DF,U+1F4E3-1F4E6,U+1F4EA-1F4ED,U+1F4F7,U+1F4F9-1F4FB,U+1F4FD-1F4FE,U+1F503,U+1F507-1F50B,U+1F50D,U+1F512-1F513,U+1F53E-1F54A,U+1F54F-1F5FA,U+1F610,U+1F650-1F67F,U+1F687,U+1F68D,U+1F691,U+1F694,U+1F698,U+1F6AD,U+1F6B2,U+1F6B9-1F6BA,U+1F6BC,U+1F6C6-1F6CF,U+1F6D3-1F6D7,U+1F6E0-1F6EA,U+1F6F0-1F6F3,U+1F6F7-1F6FC,U+1F700-1F7FF,U+1F800-1F80B,U+1F810-1F847,U+1F850-1F859,U+1F860-1F887,U+1F890-1F8AD,U+1F8B0-1F8BB,U+1F8C0-1F8C1,U+1F900-1F90B,U+1F93B,U+1F946,U+1F984,U+1F996,U+1F9E9,U+1FA00-1FA6F,U+1FA70-1FA7C,U+1FA80-1FA89,U+1FA8F-1FAC6,U+1FACE-1FADC,U+1FADF-1FAE9,U+1FAF0-1FAF8,U+1FB00-1FBFF}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmbiArmlw.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmaiArmlw.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Roboto;font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbVmUiAo.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta property="og:type" content="website"><meta name="robots" content="noindex, nofollow"><title>Title</title><meta name="description" content="Description"><style>.a-b-cont-y3pq4{overflow:hidden}</style><script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer="defer"></script><style type="text/css" media="all">:root{--white:#ffffff}.a-cloned .a-c-cont-q6n1m{width:100%}html{scroll-behavior:smooth}body{font-family:Roboto,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}*,::after,::before,body{margin:0;padding:0;box-sizing:border-box}.atomicat-interactive-quiz-progress{margin:20px auto;padding:0;max-width:28rem;height:10px;overflow:hidden;position:relative;border-radius:1rem}.atomicat-interactive-quiz-progress.atomicat-margin-top-zero{margin-top:0}button{border:none;outline:0;background:0 0;font-family:"Space Grotesk",sans-serif;cursor:pointer}.atomicat-interactive-quiz-bar-bg{opacity:.1;width:100%}.atomicat-interactive-quiz-bar,.atomicat-interactive-quiz-bar-bg{height:100%;background:var(--a-g-theme-color,#6495ed);transition-duration:.7s;position:absolute;top:0;left:0}a{color:inherit;text-decoration:inherit}.atomi-h1{font-size:36px}.atomi-h2{font-size:30px}.atomi-h3{font-size:24px}.atomi-h4{font-size:20px}.atomi-h5{font-size:18px}.atomi-h6{font-size:16px}h1{font-size:2em}h1,h2,h3,h4,h5,h6{font-weight:inherit}.a-g-m-t,[class*=atomicat-modal-trigger]{cursor:pointer}.atomicat-cursor-pointer{cursor:pointer}.a-o-cont.atomicat-unfold,.atomicat-unfold{overflow:hidden;height:200px;align-items:start;position:relative;transition:height 4s ease-in-out}.a-o-cont.atomicat-unfold-transition{transition:height .5s ease-in-out}.a-b-cont-y3pq4{word-wrap:break-word}.atomicat-unfold-button{cursor:pointer;display:block;position:relative;z-index:1;background:0 0;border:none;padding:10px;text-decoration:underline}.atomicat-unfold::after{content:"";position:absolute;bottom:0;left:0;right:0;background:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0)),to(white));background:linear-gradient(rgba(255,255,255,0),#fff);transition:background .5s ease-in-out;z-index:1;height:100%}.atomicat-ribbon-container{--text:'MOST POPULAR';--first-color:#62baea;--second-color:#4a98bf;position:relative}.atomicat-ribbon-container .atomicat-ribbon{position:absolute;top:-10px;width:150px;height:150px;display:flex;justify-content:center;align-items:center;z-index:9;overflow:hidden}.a-e-cont.atomicat-infinite-entrance-animation{animation-iteration-count:infinite}.a-b-o-cont-dfnx7{width:100%;margin:0 auto;background-repeat:no-repeat;background-size:cover;background-position:center;max-width:100%;position:relative}.atomicat-ribbon-top-left{left:-10px}.atomicat-ribbon-top-left::before{transform:rotate(-45deg) translateY(-20px)}.atomicat-ribbon-top-left::after{left:0}.atomicat-ribbon-top-right{right:-10px}.atomicat-ribbon-top-right::before{transform:rotate(45deg) translateY(-20px)}.atomicat-ribbon-top-right::after{right:0}.atomicat-ribbon-bottom-left{left:-10px;bottom:-10px}.atomicat-ribbon-bottom-left::before{transform:rotate(45deg) translateY(-20px)}.atomicat-ribbon-bottom-left::after{left:0}.atomicat-ribbon-bottom-right{right:-10px;bottom:-10px}.atomicat-ribbon-bottom-right::before{transform:rotate(-45deg) translateY(-20px)}.atomicat-ribbon-bottom-right::after{right:0}.atomicat-ribbon-container .atomicat-ribbon::before{content:var(--text);position:absolute;width:150%;height:40px;background:var(--first-color);display:flex;justify-content:center;align-items:center;font-size:14px;font-weight:600;color:#fff;letter-spacing:.1em;box-shadow:0 5px 10px rgba(0,0,0,.1)}.atomicat-ribbon-container .atomicat-ribbon::after{content:'';position:absolute;bottom:0;width:10px;height:10px;background:var(--second-color);z-index:-1;box-shadow:140px -140px var(--second-color)}.atomicat-marquee{position:relative;display:flex}.atomicat-overflow-hidden{overflow:hidden}.atomicat-marquee-content{flex-shrink:0;display:flex;justify-content:space-around;min-width:100%}.atomicat-enable-animation .atomicat-marquee-content{animation:atomicat-marquee-animation 10s linear infinite}.atomicat-marquee-reverse .atomicat-marquee-content{animation-direction:reverse}.atomicat-marquee-alternate .atomicat-marquee-content{animation-direction:alternate}.atomicat-marquee-pause:hover .atomicat-marquee-content{animation-play-state:paused}@keyframes atomicat-marquee-animation{from{transform:translateX(0)}to{transform:translateX(-100%)}}.atomicat-html-element{width:18px;height:18px}.atomicat-page{background-color:red}.a-g-s-h,.atomicat-heading-title{color:#000;font-family:Poppins,sans-serif}.a-g-s-t,.atomicat-heading-title>span,.atomicat-text,.atomicat-text>span{color:#000;font-family:Roboto,sans-serif}.a-e-cont.atomicat-button>.atomicat-button,.a-g-s-b{color:#fff;font-family:Montserrat,sans-serif;background:var(--a-g-theme-color,#6495ed)}.atomicat-fullheight{height:100%}.atomicat-disable-selection{user-select:none;-moz-user-select:none;-webkit-user-select:none;cursor:default}.atomicat-hidden{display:none}.a-r{position:relative}.a-r .atomicat-hidden,.atomicat-hidden.a-i-e-cont,.atomicat-hidden.a-r{display:none}.atomicat-chosen-option{background:#ff0}.atomicat-fixed{position:fixed;top:0;left:0;z-index:20}.flex-row{display:flex}.flex-row-reverse{flex-direction:row-reverse}.flex-column-reverse{flex-direction:column-reverse}.flex-column{display:flex;flex-direction:column}.flex-row-all{display:flex;justify-content:center;align-items:center}.flex-column-all{display:flex;flex-direction:column;justify-content:center;align-items:center}.flex-row-reverse{flex-direction:row-reverse}.flex-column-reverse{flex-direction:column-reverse}.flex-row-between{display:flex;justify-content:space-between;align-items:center}.gap-1{gap:1rem}.flex-align-center{align-items:center}.flex-row-center{display:flex;justify-content:center;align-items:center}.flex-row-align-center{display:flex;align-items:center}.a-c-cont-q6n1m{max-width:100%;min-width:0}.atomicat-custom-embed iframe{max-width:100%;width:100%;margin:0;line-height:1;border:none}.a-c-f-w{width:100%}.a-e-cont{max-width:100%}.atomicat-transform-element{transform:perspective(var(--atomicat-transform-perspective,0)) rotate(var(--atomicat-transform-rotate-z,0)) rotateX(var(--atomicat-transform-rotate-x,0)) rotateY(var(--atomicat-transform-rotate-y,0)) translate(var(--atomicat-transform-translate,0)) translateX(var(--atomicat-transform-translate-x,0)) translateY(var(--atomicat-transform-translate-y,0)) scaleX(calc(var(--atomicat-transform-flip-x,1)* var(--atomicat-transform-scale-x,var(--atomicat-transform-scale,1)))) scaleY(calc(var(--atomicat-transform-flip-y,1)* var(--atomicat-transform-scale-y,var(--atomicat-transform-scale,1)))) skewX(var(--atomicat-transform-skew-x,0)) skewY(var(--atomicat-transform-skew-y,0));transform-origin:var(--atomicat-transform-origin-y) var(--atomicat-transform-origin-x);transition:background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--atomicat-transform-transition-duration, .4s)}.a-e-cont.atomicat-googlemaps{overflow:hidden}.atomicat-flex{display:flex}.atomicat-emoji{width:65px}.atomica-emoji-unicode{font-size:65px}.atomicat-flex-column{display:flex;flex-direction:column}.atomicat-flex-start{align-self:flex-start}.atomicat-flex-end{align-self:flex-end}.atomicat-flex-center{align-self:center}.atomicat-flex-wrapper{display:flex;flex-direction:column;width:100%}.a-o-cont{display:flex;width:100%;align-items:center;max-width:100%;background-repeat:no-repeat;background-size:cover;background-position:center}.a-o-cont{height:100%;margin:0 auto}.a-acc-cont{position:relative}.a-i-e-cont{transition:height .5s ease-in-out,background .5s ease-in-out}.a-o-cont.a-cont-b>.a-cont{max-width:1140px}.a-o-cont.a-cont-f-w>.a-cont{max-width:100%}.a-o-cont .a-cont{flex-direction:column}.a-b-cont-y3pq4>.a-o-cont{margin:0 auto}.atomicat-divider-flex{display:flex;justify-content:center;align-items:center;margin:15px 0;gap:.5rem}.atomicat-divider-flex .atomicat-content{border-bottom:2px solid #000;width:50%}.atomicat-border-bottom{border-bottom:1.5px solid #e6e8ea}.atomicat-border-top{border-top:1.5px solid #e6e8ea}.a-cont{display:flex;margin:0 auto;font-weight:600;min-height:100%;width:100%}.atomicat-hidden-tablet{display:block}.atomicat-hidden-mobile{display:block}.atomicat-hidden-desktop{display:none}@media screen and (max-width:1024px){.atomicat-hidden-mobile{display:block}.atomicat-hidden-desktop{display:block}.atomicat-hidden-tablet{display:none}}@media screen and (max-width:480px){.a-o-cont.a-cont-b>.a-cont{grid-template-columns:repeat(1,1fr)}.atomicat-hidden-tablet{display:block}.atomicat-hidden-desktop{display:block}.atomicat-hidden-mobile{display:none}.a-cont{flex-wrap:wrap}}@media (min-width:768px){.atomicat-column[data-col="10"]{width:10%}.atomicat-column[data-col="11"]{width:11.111%}.atomicat-column[data-col="12"]{width:12.5%}.atomicat-column[data-col="14"]{width:14.285%}.atomicat-column[data-col="16"]{width:16.666%}.atomicat-column[data-col="20"]{width:20%}.atomicat-column[data-col="25"]{width:25%}.atomicat-column[data-col="30"]{width:30%}.atomicat-column[data-col="33"]{width:33.333%}.atomicat-column[data-col="40"]{width:40%}.atomicat-column[data-col="50"]{width:50%}.atomicat-column[data-col="60"]{width:60%}.atomicat-column[data-col="66"]{width:66.666%}.atomicat-column[data-col="70"]{width:70%}.atomicat-column[data-col="75"]{width:75%}.atomicat-column[data-col="80"]{width:80%}.atomicat-column[data-col="83"]{width:83.333%}.atomicat-column[data-col="90"]{width:90%}.atomicat-column[data-col="100"]{width:100%}}.flexBox{display:flex;flex-direction:column;gap:8px}.atomicat-tooltip-trigger:hover .atomicat-tooltip{opacity:1;z-index:1;cursor:pointer}.a-c-cont-q6n1m .atomicat-tooltip-trigger{overflow:visible;position:relative;cursor:pointer}.atomicat-tooltip-trigger:hover .atomicat-tooltip-top{animation:atomicat-tooltip-topin .3s linear}.atomicat-tooltip-trigger:hover .atomicat-tooltip-right{animation:atomicat-tooltip-rightin .3s linear}.atomicat-tooltip-trigger:hover .atomicat-tooltip-bottom{animation:atomicat-tooltip-bottomin .3s linear}.atomicat-tooltip-trigger:hover .atomicat-tooltip-left{animation:atomicat-tooltip-leftin .3s linear}.atomicat-tooltip{width:150px;background-color:#555;color:#fff;animation-duration:.3s;opacity:0;display:block;color:#fff;border-radius:4px;padding:10px;position:absolute;z-index:-1;line-height:1.3;cursor:pointer;text-align:left}.atomicat-tooltip::after{border-width:5px;content:"";position:absolute;border-style:solid}.atomicat-tooltip-top{bottom:100%;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);margin:0 auto 10px auto}.atomicat-tooltip-top::after{top:100%;left:calc(50% - 5px);border-top-color:#555;margin-top:0;border-color:#000 transparent transparent transparent;border-top-color:#555}.atomicat-tooltip-right{top:50%;left:100%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;margin-left:10px;border-color:transparent #000 transparent transparent}.atomicat-tooltip-right::after{top:calc(50% - 5px);right:100%;border-color:transparent #000 transparent transparent;border-right-color:#555}.atomicat-tooltip-bottom{top:100%;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);margin:10px auto 0 auto}.atomicat-tooltip-bottom::after{left:calc(50% - 5px);margin-top:0;bottom:100%;border-color:transparent transparent #000 transparent;border-bottom-color:#555}.atomicat-tooltip-left{top:50%;right:100%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);margin-right:10px}.atomicat-tooltip-left::after{top:calc(50% - 5px);left:100%;border-color:transparent transparent transparent #000;border-left-color:#555}@keyframes atomicat-tooltip-rightin{0%{opacity:0;left:105%}100%{opacity:1;left:100%}}@keyframes atomicat-tooltip-leftin{0%{opacity:0;right:105%}100%{opacity:1;right:100%}}@keyframes atomicat-tooltip-topin{0%{opacity:0;bottom:110%}100%{opacity:1;bottom:100%}}@keyframes atomicat-tooltip-bottomin{0%{opacity:0;top:110%}100%{opacity:1;top:100%}}.atomicat-html .a-i-e-cont iframe{width:100%;height:100vh;border:none}.atomicat-delay{display:none}</style><meta property="og:url" content="https://www.feguiada.site/calma-filho"><meta property="og:description" content="Description"><meta charset="utf-8"><meta property="og:title" content="Title"><meta property="og:image" content="images/ogimage.png"></head><body data-page="_fD9olyFLQ16GOyFBW4Zf" data-variant="gm43syvqkab" id="_tsnEbWTVAsXbygu0Xm6qN7vppEg1" data-version="2.2" data-page-type="page"><div class="a-b-cont-y3pq4"><div class="atomicat-container-a6c352f a-b-o-cont-dfnx7 a-u-1" data-hex="tsnEbWTVAs"><style>.atomicat-container-a6c352f>.a-o-cont>.a-cont{flex-direction:column}.a-b-cont-y3pq4 .atomicat-container-a6c352f.a-b-o-cont-dfnx7{background-size:cover;background-repeat:no-repeat;background-position:center}</style><div class="a-o-cont a-cont-b"><div class="a-i-cont a-s-d-g5rkq7 a-cont"><div class="a-c-cont-a2a2e76 a-s-d-mvo090 a-c-cont-q6n1m a-r"><style></style><div class="atomicat-html-a2a2e76 atomicat-element-container-a2a2e76 a-r a-u-2 atomicat-html a-e-cont" data-hex="Xbygu0Xm6"><!-- html - gyikyg --><div class="a-i-e-cont"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Father Paul has an urgent message for you...</title><!-- Favicon --><link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✝️</text></svg>"><!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Merriweather:ital@1&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Roboto,sans-serif;background-color:#fafafa;color:#333;line-height:1.6;overflow-x:hidden}.progress-container{position:fixed;top:0;left:0;width:100%;height:4px;background:#f0f0f0;z-index:10000}.progress-bar{height:100%;background:linear-gradient(90deg,gold,orange);width:0%;transition:width .3s ease}.exit-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);display:none;z-index:9999;animation:fadeIn .3s ease}.exit-popup.show{display:flex;align-items:center;justify-content:center}.popup-content{background:#fff;padding:30px 20px;border-radius:15px;max-width:90%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.3);animation:slideUp .4s ease}.popup-image{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;object-fit:cover;border:4px solid gold}.popup-title{font-size:22px;font-weight:700;color:#b8860b;margin-bottom:15px;line-height:1.3}.popup-text{font-size:18px;margin-bottom:25px;color:#555;line-height:1.5}.popup-button{background:linear-gradient(135deg,gold,orange);color:#fff;padding:18px 40px;border:none;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 5px 15px rgba(255,215,0,.4);animation:pulse 2s infinite;width:100%;max-width:350px}.popup-skip{margin-top:15px;font-size:14px;color:#999;text-decoration:underline;cursor:pointer}.header{background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}.urgency-bar{background:#d32f2f;color:#fff;padding:12px;text-align:center;font-weight:500;font-size:16px;position:sticky;top:4px;z-index:100;animation:slideDown .5s ease}.timer{font-weight:700;font-size:18px;color:#ffeb3b}.hero{padding:25px 15px;text-align:center;background:#fff}.hero-title{font-size:26px;font-weight:900;color:#1e3c72;margin-bottom:15px;line-height:1.3}.hero-subtitle{font-size:18px;color:#666;margin-bottom:25px;font-style:italic}.urgent-letter-section{background:#f5f5f5;padding:20px 15px}.letter-container{background:#fff;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);overflow:hidden;border:2px solid gold}.letter-header{background:linear-gradient(135deg,gold,orange);padding:20px;text-align:center;color:#fff}.letter-title{font-size:22px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px}.letter-date{font-size:16px;opacity:.9}.letter-content{padding:25px 20px;font-size:17px;line-height:1.8;color:#333}.letter-greeting{font-family:Merriweather,serif;font-size:19px;color:#1e3c72;margin-bottom:20px;font-style:italic}.letter-paragraph{margin-bottom:20px;text-align:left}.letter-highlight{background:#fff9c4;padding:20px;border-left:4px solid gold;margin:25px 0;font-weight:500;border-radius:0 8px 8px 0}.letter-testimony{background:#f8f9fa;padding:20px;margin:20px 0;border-radius:10px;border:1px solid #e0e0e0}.testimony-header{font-weight:700;color:#1e3c72;margin-bottom:10px;font-size:18px}.testimony-text{font-style:italic;color:#555;line-height:1.6}.letter-cta-section{background:#fff3e0;padding:25px;margin:25px -20px -25px;text-align:center;border-top:2px dashed gold}.letter-signature{text-align:right;margin-top:30px;font-style:italic;color:#666}.signature-image{max-width:150px;margin-top:10px;opacity:.8}.audio-option{background:#e3f2fd;padding:15px;border-radius:10px;text-align:center;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:all .3s ease}.audio-option:hover{background:#bbdefb}.audio-icon{font-size:24px}.section{padding:30px 15px;background:#fff;margin-bottom:2px}.section-title{font-size:24px;font-weight:700;color:#1e3c72;margin-bottom:20px;text-align:center;line-height:1.3}.truth-box{background:#f8f9fa;border-left:5px solid gold;padding:20px;margin:20px 0;border-radius:0 8px 8px 0}.truth-text{font-size:17px;line-height:1.6;color:#555}.visual-testimonials{padding:30px 15px;background:#f8f9fa}.testimonial-grid{display:grid;gap:20px;margin-top:20px}.testimonial-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:transform .3s ease}.testimonial-card:active{transform:scale(.98)}.testimonial-image{width:100%;height:200px;object-fit:cover;background:#f0f0f0}.testimonial-content{padding:20px}.testimonial-name{font-weight:700;color:#1e3c72;margin-bottom:5px;font-size:18px}.testimonial-location{color:#666;font-size:14px;margin-bottom:10px}.testimonial-quote{font-style:italic;color:#555;line-height:1.5;margin-bottom:15px}.testimonial-result{background:#e8f5e9;padding:10px;border-radius:8px;text-align:center;font-weight:700;color:#2e7d32}.whatsapp-proof{padding:30px 15px;background:#fff}.whatsapp-messages{max-width:400px;margin:20px auto;background:#e5ddd5;padding:20px;border-radius:10px}.whatsapp-message{background:#fff;padding:12px 15px;border-radius:7px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.1);position:relative}.whatsapp-message.received{background:#fff;margin-right:20%}.whatsapp-message.sent{background:#dcf8c6;margin-left:20%}.whatsapp-time{font-size:12px;color:#999;text-align:right;margin-top:5px}.comparison-visual{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:30px 0}.comparison-column{text-align:center}.comparison-icon{font-size:48px;margin-bottom:10px}.comparison-label{font-weight:700;color:#1e3c72;margin-bottom:10px}.comparison-value{font-size:32px;font-weight:900;margin-bottom:5px}.comparison-column.waste .comparison-value{color:#d32f2f}.comparison-column.investment .comparison-value{color:#2e7d32}.offer-countdown{background:#d32f2f;color:#fff;padding:15px;border-radius:10px;text-align:center;margin-bottom:20px;font-size:18px;font-weight:700}.bonus-stack{position:relative;margin:30px 0}.bonus-ribbon{position:absolute;top:-10px;right:-10px;background:#d32f2f;color:#fff;padding:5px 20px;border-radius:20px;transform:rotate(15deg);font-weight:700;font-size:14px;box-shadow:0 3px 10px rgba(0,0,0,.2)}.sticky-cta{position:fixed;bottom:-100px;left:0;right:0;background:#fff;padding:15px;box-shadow:0 -5px 20px rgba(0,0,0,.1);z-index:1000;transition:bottom .3s ease;display:flex;gap:10px;align-items:center}.sticky-cta.show{bottom:0}.sticky-cta-button{flex:1;background:linear-gradient(135deg,gold,orange);color:#fff;padding:15px;border:none;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;animation:pulse 2s infinite}.sticky-cta-price{font-size:14px;color:#666;text-align:center}.comparison-box{background:#fff3e0;padding:20px;border-radius:10px;margin:20px 0}.comparison-item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffcc80;font-size:17px}.comparison-item:last-child{border-bottom:none}.comparison-total{font-weight:700;color:#d32f2f;font-size:20px;margin-top:10px;text-align:right}.investment-highlight{background:#e8f5e9;padding:20px;border-radius:10px;text-align:center;margin:20px 0;border:2px solid #4caf50}.investment-price{font-size:36px;font-weight:900;color:#2e7d32;margin:10px 0}.investment-installment{font-size:20px;color:#666}.offer-section{background:linear-gradient(135deg,#fff9c4,#fff8e1);padding:30px 15px}.offer-box{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1);border:3px solid gold;position:relative}.offer-header{text-align:center;margin-bottom:25px}.offer-title{font-size:28px;font-weight:900;color:#b8860b;margin-bottom:10px}.bonus-item{background:#f8f9fa;padding:20px;margin:15px 0;border-radius:10px;border-left:5px solid gold;position:relative;overflow:hidden}.bonus-item::before{content:'✓';position:absolute;right:20px;top:20px;font-size:30px;color:#4caf50;opacity:.2}.bonus-title{font-weight:700;color:#1e3c72;font-size:18px;margin-bottom:8px}.bonus-value{color:#d32f2f;font-weight:500;text-decoration:line-through;font-size:16px}.bonus-description{color:#666;margin-top:8px;font-size:15px;line-height:1.4}.total-value{text-align:center;margin:25px 0;padding:20px;background:#f5f5f5;border-radius:10px}.total-label{font-size:18px;color:#666}.total-price{font-size:32px;font-weight:900;color:#d32f2f;text-decoration:line-through;margin:10px 0}.today-price{font-size:42px;font-weight:900;color:#2e7d32;margin:10px 0}.guarantee-section{background:#e3f2fd;padding:30px 15px;text-align:center}.guarantee-box{background:#fff;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1);max-width:500px;margin:0 auto}.guarantee-badge{width:100px;height:100px;margin:0 auto 20px;background:gold;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 5px 15px rgba(255,215,0,.3)}.guarantee-item{text-align:left;margin:15px 0;padding-left:30px;position:relative;font-size:16px;line-height:1.5}.guarantee-item:before{content:"✅";position:absolute;left:0;top:0;font-size:20px}.cta-section{padding:30px 15px;background:#fff;text-align:center}.cta-button{display:block;width:100%;max-width:400px;margin:15px auto;padding:20px 30px;font-size:20px;font-weight:700;border:none;border-radius:50px;cursor:pointer;transition:all .3s ease;text-decoration:none;color:#fff;box-shadow:0 5px 15px rgba(0,0,0,.2)}.cta-primary{background:linear-gradient(135deg,gold,orange);animation:pulse 2s infinite}.cta-secondary{background:linear-gradient(135deg,#4caf50,#388e3c)}.cta-button:active{transform:scale(.98)}.cta-subtext{font-size:14px;color:#666;margin-top:10px}.ps-section{background:#f5f5f5;padding:30px 15px}.ps-item{margin:20px 0;padding:20px;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.05)}.ps-label{font-weight:700;color:#b8860b;margin-bottom:10px;font-size:18px}.ps-text{font-size:16px;line-height:1.6;color:#555}.footer{background:#1e3c72;color:#fff;padding:30px 15px;text-align:center}.security-badges{display:flex;justify-content:center;gap:20px;margin-bottom:20px;flex-wrap:wrap}.badge{background:#fff;padding:10px 20px;border-radius:5px;color:#1e3c72;font-weight:500;font-size:14px;display:flex;align-items:center;gap:5px}.footer-links{margin:20px 0;font-size:14px}.footer-link{color:#fff;text-decoration:none;margin:0 10px}.footer-verse{font-style:italic;margin-top:20px;font-size:16px;color:gold}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes slideDown{from{transform:translateY(-100%)}to{transform:translateY(0)}}@keyframes pulse{0%{transform:scale(1);box-shadow:0 5px 15px rgba(255,215,0,.4)}50%{transform:scale(1.05);box-shadow:0 8px 25px rgba(255,215,0,.6)}100%{transform:scale(1);box-shadow:0 5px 15px rgba(255,215,0,.4)}}@keyframes typing{from{opacity:0}to{opacity:1}}.typing-effect{animation:typing .5s ease forwards}@media (max-width:480px){.hero-title{font-size:24px}.section-title{font-size:22px}.popup-text{font-size:16px}.comparison-item,.letter-content,.ps-text,.testimonial-text,.truth-text{font-size:16px}.cta-button{font-size:18px;padding:18px 25px}}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a,button{-webkit-tap-highlight-color:transparent}.trust-indicator{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px 0;font-size:14px;color:#666}.trust-indicator img{height:20px}.loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.9);z-index:10000;align-items:center;justify-content:center}.loading.show{display:flex}.spinner{width:50px;height:50px;border:5px solid #f3f3f3;border-top:5px solid gold;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.highlight-animation{background:linear-gradient(90deg,transparent 0,gold 50%,transparent 100%);background-size:200% 100%;animation:highlight 2s ease infinite}@keyframes highlight{0%{background-position:-100% 0}100%{background-position:100% 0}}.reading-time{background:#e3f2fd;padding:10px 15px;border-radius:20px;font-size:14px;color:#1976d2;display:inline-block;margin:15px 0}.visual-break{text-align:center;margin:30px 0;color:gold;font-size:24px}</style><!-- Progress Bar --><div class="progress-container"><div class="progress-bar" id="progressBar"></div></div><!-- Exit Intent Popup --><div class="exit-popup" id="exitPopup"><div class="popup-content"><img src="images/logo.png" alt="Father Paul" class="popup-image"><h2 class="popup-title">🕊️ WAIT! Our Lady has a message for you...</h2><p class="popup-text">"My child, I understand your concern about the price...<br>But God has already shown me that He has prepared a special path for you.<br><br><strong>May I show you?"</strong></p><button class="popup-button" onclick="closePopup()">YES, I WANT TO RECEIVE THIS GRACE</button><div class="popup-skip" onclick="reallyClose()">Not now, Father</div></div></div><!-- Loading State --><div class="loading" id="loadingState"><div class="spinner"></div></div><!-- Urgency Bar --><div class="urgency-bar">⏰ ATTENTION: This special offer ends in <span class="timer" id="timer">02:00:00</span></div><!-- Header --><header class="header"><h1>✝️ Original Sacred Manuscript</h1><p>Approved by 15 Priests and 3 Bishops</p></header><!-- Hero Section --><section class="hero"><h2 class="hero-title">"How 1,247 Catholics Who Thought They 'Couldn't Afford It' Discovered That God Had Already Prepared Provision For Their Blessing"</h2><p class="hero-subtitle">The Truth About Why the Enemy Uses Fear of Money to Keep You Away From God's Plans</p></section><!-- Urgent Letter Section --><section class="urgent-letter-section"><div class="letter-container"><div class="letter-header"><h3 class="letter-title"><span>📜</span> URGENT LETTER FROM FATHER PAUL <span>📜</span></h3><p class="letter-date">Valid only for the next 2 hours</p></div><div class="letter-content"><p class="letter-greeting">"May the peace of Christ be with you..."</p><div class="reading-time">📖 Reading time: 3 minutes that can change your life</div><div class="letter-paragraph"><strong>My son, my daughter in Christ,</strong><br><br>The Holy Spirit compelled me to write this urgent message because I know EXACTLY what happened in your heart just now...</div><div class="letter-paragraph">You felt that tightening in your chest when you saw the price, didn't you?<br><br><em>"Father, I really want the Sacred Manuscript, but $97... is too much money for me right now..."</em></div><div class="letter-highlight">My son, my daughter... I understand deeply.<br><br>You know, before I became a priest, I was the son of a humble family from the countryside. My mother sewed for others, my father was a bricklayer...<br><br><strong>I know what it's like to count coins to buy bread.</strong></div><div class="visual-break">✝️ ✝️ ✝️</div><div class="letter-paragraph">But let me tell you something that changed my life...</div><div class="letter-paragraph"><strong>When God wants to bless you, He ALWAYS prepares the means.</strong><br><br>Remember the multiplication of loaves? The boy had only 5 loaves and 2 fish... that was EVERYTHING he had.<br><br>But when he placed it in Jesus' hands...<br><br><strong>You know what happened.</strong></div><div class="letter-testimony"><div class="testimony-header">And this is exactly what I've been seeing happen:</div><p class="testimony-text">Maria Aparecida, a seamstress from Campinas, invested her last $200. Today she earns $8,000/month in her studio.</p></div><div class="letter-testimony"><p class="testimony-text">José Carlos was unemployed for 8 months. Used his unemployment benefits. 15 days later, a job with a 3x higher salary.</p></div><div class="letter-testimony"><p class="testimony-text">Sister Benedita saved her religious community from bankruptcy. Today has 47 fixed benefactors helping monthly.</p></div><div class="letter-paragraph"><strong>Do you know what they all have in common?</strong><br><br>They ALMOST gave up because of the price.<br><br>But something inside them - which I now know was the Holy Spirit - made them take the step of faith.</div><div class="visual-break">🕊️ 🕊️ 🕊️</div><div class="letter-highlight" style="background:#ffebee;border-left-color:#d32f2f"><strong>That's why the Holy Spirit inspired me to do something unprecedented...</strong><br><br>ONLY for you who are reading this letter now, I will release the Sacred Manuscript for HALF the price.<br><br>From $97 to just <strong style="color:#d32f2f">$17.90</strong>.<br><br>Or 12 installments of <strong>$1.49</strong>.<br><br><em>Less than your Sunday tithe!</em></div><div class="letter-paragraph"><strong>But there's a catch...</strong><br><br>This offer is valid only for the next 2 hours.<br><br>Why?<br><br>Because I can only personally accompany 30 new faithful at a time. And we already have 23 spots filled.<br><br>Also, tomorrow I start my 7-day spiritual retreat.<br><br><strong>If you don't take advantage now, the price goes back to $97.</strong></div><div class="visual-break">⏰ ⏰ ⏰</div><div class="letter-paragraph">My son, my daughter...<br><br>God doesn't bring opportunities to your door by chance.<br><br>The choice is yours: continue in the same situation...<br><br>Or take the step of faith that can change everything.</div><div class="letter-cta-section"><p style="font-size:20px;font-weight:700;color:#b8860b;margin-bottom:20px">May God bless your decision.</p><button class="cta-button cta-primary" onclick="window.location.href='https://go.centerpag.com/PPU38CQ2RD1'" style="margin:0 auto 15px">ACCEPT THIS BLESSING NOW</button><p style="font-size:16px;color:#666">Click and choose your payment method</p></div><div class="letter-signature"><p>With my blessings,</p><p><strong>Father Paul Henrique</strong></p><p style="font-size:14px">Parish Priest of St. Joseph Church</p><img src="images/logo.png" alt="Signature" class="signature-image"></div></div></div><div class="audio-option" onclick="playAudio()"><span class="audio-icon">🔊</span> <span>Prefer to listen? Click here to hear the letter narrated by Father Paul</span></div></section><!-- Visual Testimonials Section --><section class="visual-testimonials"><h2 class="section-title">Real Proof of Transformation</h2><div class="testimonial-grid"><div class="testimonial-card" onclick="expandTestimonial(this)"><img src="images/design-sem-nome-27.webp" alt="Maria Aparecida" class="testimonial-image"><div class="testimonial-content"><div class="testimonial-name">Maria Aparecida</div><div class="testimonial-location">Campinas/SP - Seamstress</div><div class="testimonial-quote">"I invested my last $200. Today I earn $8,000/month and help 3 families from the parish."</div><div class="testimonial-result">ROI: 4,000% in 4 months</div></div></div><div class="testimonial-card" onclick="expandTestimonial(this)"><img src="images/design-sem-nome-29.webp" alt="José Carlos" class="testimonial-image"><div class="testimonial-content"><div class="testimonial-name">José Carlos</div><div class="testimonial-location">Recife/PE - Administrator</div><div class="testimonial-quote">"Unemployed for 8 months. 15 days after the manuscript, hired with a 3x higher salary!"</div><div class="testimonial-result">From $0 to $7,500/month</div></div></div><div class="testimonial-card" onclick="expandTestimonial(this)"><img src="images/design-sem-nome-26.webp" alt="Sister Benedita" class="testimonial-image"><div class="testimonial-content"><div class="testimonial-name">Sister Benedita</div><div class="testimonial-location">BH/MG - Religious Sister</div><div class="testimonial-quote">"Our community was going to close. Today we have 47 fixed benefactors. Real miracle!"</div><div class="testimonial-result">47 monthly donors gained</div></div></div></div></section><!-- WhatsApp Proof Section --><section class="whatsapp-proof"><h2 class="section-title">Real Messages in Our Group</h2><div class="whatsapp-messages"><div class="whatsapp-message received"><strong>John - Curitiba</strong><br>Father, I can't believe it! I received a partnership proposal today. Exactly the amount I needed! 🙏<div class="whatsapp-time">14:32</div></div><div class="sent whatsapp-message"><strong>Father Paul</strong><br>Glory to God, John! Keep applying the 7-day method. More is coming! ✝️<div class="whatsapp-time">14:35</div></div><div class="whatsapp-message received"><strong>Ana Clara - Salvador</strong><br>Guys, it really worked! My husband got the promotion after 5 years of trying! Crying with joy here 😭❤️<div class="whatsapp-time">15:18</div></div><div class="received whatsapp-message"><strong>Peter - Rio</strong><br>3rd day using the holy water from the manuscript. Received 3 calls from old clients wanting to come back. Coincidence? I don't think so!<div class="whatsapp-time">16:42</div></div></div></section><!-- Truth Section --><section class="section"><h2 class="section-title">Why Satan Always Attacks Your Mind With Fear When God Is About to Bless You</h2><div class="truth-box"><p class="truth-text"><strong>My son, my daughter in Christ,</strong><br><br>23 years serving God as a priest, one thing has become very clear to me:<br><br><strong>The enemy ALWAYS uses fear of money as the first weapon when God is about to transform your life.</strong><br><br>Think with me...<br><br>✓ When Moses hesitated before the Red Sea...<br>✓ When Peter doubted while walking on water...<br>✓ When the disciples thought there was no food for the crowd...<br><br><strong>Fear always preceded the miracle.</strong></p></div></section><!-- Value Comparison Section Enhanced --><section class="section" style="background:#f8f9fa"><h2 class="section-title">Let's Do Some Math That Will Open Your Eyes...</h2><div class="comparison-visual"><div class="waste comparison-column"><div class="comparison-icon">💸</div><div class="comparison-label">Monthly Expenses Without Return</div><div class="comparison-value">$98</div><div style="font-size:14px;color:#666">On temporary things</div></div><div class="investment comparison-column"><div class="comparison-icon">✨</div><div class="comparison-label">Investment in Manuscript</div><div class="comparison-value">$1.49</div><div style="font-size:14px;color:#666">Per month (in 12x)</div></div></div><div class="comparison-box"><h3 style="margin-bottom:20px;color:#b8860b">Monthly Expenses Breakdown:</h3><div class="comparison-item"><span>☕ Daily coffee ($1 x 30)</span> <span><strong>$30/month</strong></span></div><div class="comparison-item"><span>🍕 Weekly pizza ($9 x 4)</span> <span><strong>$36/month</strong></span></div><div class="comparison-item"><span>⛽ Extra fuel</span> <span><strong>$18/month</strong></span></div><div class="comparison-item"><span>💊 Unnecessary medicines</span> <span><strong>$14/month</strong></span></div><div class="comparison-total">Total: $98/month on temporary things</div></div><div class="investment-highlight"><h3>Now compare:</h3><div class="investment-price">$17.90 total</div><div class="investment-installment">or 12x of $1.49</div><p style="margin-top:15px;font-size:18px;color:#2e7d32"><strong>Less than your Sunday tithe!</strong></p></div></section><!-- Special Offer Section --><section class="offer-section"><div class="offer-countdown">⏰ ATTENTION: Offer valid for only <span id="timer3">02:00:00</span></div><div class="offer-box"><div class="bonus-ribbon">TODAY ONLY!</div><div class="offer-header"><h2 class="offer-title">🎁 TALENT MULTIPLICATION PACKAGE</h2><p style="color:#666;font-size:16px">Only for those on this page now</p></div><div class="bonus-item"><div class="bonus-title">1. Complete Original Sacred Manuscript</div><div class="bonus-value">Value: $497</div><div class="bonus-description">• The 12 words that transform common water into powerful holy water<br>• The 7-day method to attract divine provision<br>• Secret prayers of the saints for prosperity</div></div><div class="bonus-item"><div class="bonus-title">2. BONUS: Miraculous Prosperity Novena</div><div class="bonus-value">Value: $97</div><div class="bonus-description">• 9 days of powerful compiled prayers<br>• Audio with my voice guiding each prayer<br>• Testimonials of financial graces achieved</div></div><div class="bonus-item"><div class="bonus-title">3. BONUS: VIP Group "Upper Room of Abundance"</div><div class="bonus-value">Value: $197</div><div class="bonus-description">• Direct access to me on WhatsApp<br>• Daily prayers at 6am and 6pm<br>• Weekly testimonials of financial miracles</div></div><div class="bonus-item"><div class="bonus-title">4. BONUS: Blessed St. Benedict Medal</div><div class="bonus-value">Value: $47</div><div class="bonus-description">• Sent by mail to your home<br>• Personally blessed by me<br>• Protection against envy and evil eye</div></div><div class="bonus-item"><div class="bonus-title">5. SURPRISE BONUS: "Kingdom Entrepreneur" Kit</div><div class="bonus-value">Value: $297</div><div class="bonus-description">• 7 lessons on business in light of the Gospel<br>• How Blessed Carlo Acutis became a millionaire<br>• Biblical principles of financial multiplication</div></div><div class="total-value"><div class="total-label">Total Value of Everything:</div><div class="total-price">$1,135</div><div class="total-label">Today, by divine determination, only:</div><div class="today-price">$17.90</div><div style="font-size:18px;color:#666">or 12x of $1.49</div></div></div></section><!-- Guarantee Section --><section class="guarantee-section"><h2 class="section-title">My Priestly Promise to You</h2><div class="guarantee-box"><div class="guarantee-badge">🛡️</div><h3 style="color:#1e3c72;margin-bottom:20px">TRIPLE SACRED 90-DAY GUARANTEE</h3><div class="guarantee-item"><strong>Guarantee 1:</strong> If in 90 days you haven't recovered at least 5x the amount invested, we refund 100% of your money.</div><div class="guarantee-item"><strong>Guarantee 2:</strong> If you apply the teachings and don't see changes in 30 days, in addition to the refund, you get 1 hour of spiritual counseling with me.</div><div class="guarantee-item"><strong>Guarantee 3:</strong> You can keep all bonuses even if you request a refund. It's my gift of faith to you.</div><p style="text-align:center;margin-top:20px;font-style:italic;color:#666">"Silver and gold have I none; but such as I have give I thee" - Acts 3:6</p></div></section><!-- CTA Section --><section class="cta-section"><h2 class="section-title" style="color:#d32f2f">⏰ ATTENTION: This offer ends in <span id="timer2">02:00:00</span></h2><button class="cta-primary cta-button" onclick="window.location.href='https://go.centerpag.com/PPU38CQ2RD1'">I WANT TO RECEIVE MY BLESSING NOW</button><p class="cta-subtext">Click and pay with 50% discount</p><div class="trust-indicator"><span>🔒 100% Secure Purchase</span> <span>•</span> <span>✝️ Official Site</span> <span>•</span> <span>📧 24h Support</span></div></section><!-- PS Section --><section class="ps-section"><div class="ps-item"><div class="ps-label">P.S.¹</div><p class="ps-text">Do you know what breaks my heart? Seeing faithful praying for a financial miracle but refusing the answer when God sends it. Don't be another one...</p></div><div class="ps-item"><div class="ps-label">P.S.²</div><p class="ps-text">Remember the parable of the talents? The servant who buried his talent was condemned. Don't bury this opportunity God is giving you.</p></div><div class="ps-item"><div class="ps-label">P.S.³</div><p class="ps-text">"Father, what if I buy and regret it?" Simple: you have 90 days to ask for every penny back. But I know that won't happen. Do you know why? Because God doesn't fail.</p></div><div class="ps-item"><div class="ps-label">P.S.⁴</div><p class="ps-text">This page will only be up for <span style="color:#d32f2f;font-weight:700">2 more hours</span>. After that, the price goes back to $97. The choice is yours.</p></div></section><!-- Footer --><footer class="footer"><div class="security-badges"><div class="badge">🔒 SSL Secure</div><div class="badge">✝️ Diocese Approved</div><div class="badge">📱 24/7 Support</div></div><div class="footer-links"><a href="#" class="footer-link">Terms of Use</a> <a href="#" class="footer-link">Privacy Policy</a> <a href="#" class="footer-link">Contact</a></div><div class="footer-verse">"Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom."<br>- Luke 6:38</div><p style="margin-top:20px;font-size:12px;color:#ccc">© 2024 Sacred Manuscript. All rights reserved.<br>Father Paul Henrique - CRB 12.345</p></footer><!-- Sticky CTA --><div class="sticky-cta" id="stickyCTA"><div><div class="sticky-cta-price">From $97 to $17.90</div></div><button class="sticky-cta-button" onclick="window.location.href='https://go.centerpag.com/PPU38CQ2RD1'">I WANT IT NOW!</button></div><script>// Exit Intent Detection
+        let exitIntentShown = false;
+        
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                showExitPopup();
+            }
+        });
+        
+        // Mobile exit intent (scroll up quickly)
+        let lastScrollTop = 0;
+        let scrollVelocity = 0;
+        let lastScrollTime = Date.now();
+        
+        window.addEventListener('scroll', function() {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const currentTime = Date.now();
+            const timeDiff = currentTime - lastScrollTime;
+            
+            scrollVelocity = Math.abs(currentScrollTop - lastScrollTop) / timeDiff;
+            
+            // If scrolling up quickly near top of page
+            if (currentScrollTop < lastScrollTop && 
+                scrollVelocity > 2 && 
+                currentScrollTop < 200 && 
+                !exitIntentShown) {
+                showExitPopup();
+            }
+            
+            // Show sticky CTA after 30% scroll
+            const scrollPercentage = (currentScrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercentage > 30 && !document.getElementById('stickyCTA').classList.contains('show')) {
+                document.getElementById('stickyCTA').classList.add('show');
+            }
+            
+            // Update progress bar
+            updateProgressBar();
+            
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+            lastScrollTime = currentTime;
+        });
+        
+        function showExitPopup() {
+            exitIntentShown = true;
+            document.getElementById('exitPopup').classList.add('show');
+            
+            // Track exit intent
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'ExitIntent', {
+                    page: 'backredirect',
+                    value: 37
+                });
+            }
+        }
+        
+        function closePopup() {
+            document.getElementById('exitPopup').classList.remove('show');
+            // Scroll to offer
+            document.querySelector('.offer-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function reallyClose() {
+            document.getElementById('exitPopup').classList.remove('show');
+        }
+        
+        // Progress Bar
+        function updateProgressBar() {
+            const scrolled = window.scrollY;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / height) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+        
+        // Timer countdown
+        function startTimer(duration, display1, display2, display3) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                
+                const timeString = hours + ":" + minutes + ":" + seconds;
+                display1.textContent = timeString;
+                if (display2) display2.textContent = timeString;
+                if (display3) display3.textContent = timeString;
+                
+                if (--timer < 0) {
+                    timer = 0;
+                    showUrgencyAlert();
+                }
+            }, 1000);
+        }
+        
+        // Initialize timer
+        window.onload = function () {
+            const twoHours = 2 * 60 * 60;
+            const display1 = document.getElementById('timer');
+            const display2 = document.getElementById('timer2');
+            const display3 = document.getElementById('timer3');
+            startTimer(twoHours, display1, display2, display3);
+            
+            // Track page view
+            trackPageView();
+            
+            // Start reading progress
+            updateProgressBar();
+        };
+        
+        function showUrgencyAlert() {
+            if (!document.querySelector('.urgency-alert')) {
+                const alert = document.createElement('div');
+                alert.className = 'urgency-alert';
+                alert.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #d32f2f;
+                    color: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    text-align: center;
+                    z-index: 10000;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+                `;
+                alert.innerHTML = `
+                    <h3 style="margin-bottom: 15px;">⏰ TIME EXPIRED!</h3>
+                    <p>The special offer has expired.<br>The price has returned to $97.</p>
+                    <button onclick="location.reload()" style="margin-top: 15px; padding: 10px 20px; background: white; color: #d32f2f; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                        Reload Page
+                    </button>
+                `;
+                document.body.appendChild(alert);
+            }
+        }
+        
+        // Audio placeholder
+        function playAudio() {
+            // Show loading
+            const audioBtn = document.querySelector('.audio-option');
+                audioBtn.innerHTML = '<span class="audio-icon">⏳</span><span>Loading audio...</span>';
+            
+            // Simulate loading
+            setTimeout(() => {
+                audioBtn.innerHTML = '<span class="audio-icon">▶️</span><span>Playing Father Paul's letter...</span>';
+                
+                // Track audio play
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'AudioPlay', {
+                        page: 'backredirect'
+                    });
+                }
+            }, 1000);
+        }
+        
+        // Expand testimonial
+        function expandTestimonial(card) {
+            card.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Checkout functions
+        function checkout(method) {
+            // Show loading
+            const loadingEl = document.getElementById('loadingState');
+            if (loadingEl) loadingEl.classList.add('show');
+            
+            // Track checkout initiation
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    value: 17.90,
+                    currency: 'BRL',
+                    payment_method: method
+                });
+            }
+            
+            // Track with GTM
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'begin_checkout',
+                    'value': 17.90,
+                    'currency': 'BRL',
+                    'payment_method': method
+                });
+            }
+            
+            // Simulate loading and redirect
+            setTimeout(() => {
+                window.location.href = `https://go.centerpag.com/PPU38CQ2RD1`;
+            }, 1500);
+        }
+        
+        // Track page view
+        function trackPageView() {
+            // Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'PageView');
+                fbq('trackCustom', 'BackredirectView', {
+                    page: 'price_barrier',
+                    original_price: 97,
+                    discount_price: 17.90
+                });
+            }
+            
+            // Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: 'Backredirect - Sacred Manuscript',
+                    page_location: window.location.href,
+                    page_path: window.location.pathname
+                });
+            }
+            
+            // GTM
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'backredirect_view',
+                    'page_type': 'exit_recovery',
+                    'product_price': 17.90,
+                    'original_price': 97,
+                    'discount_percentage': 50
+                });
+            }
+        }
+        
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add micro-interactions
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Dynamic social proof
+        function showSocialProof() {
+            const names = ['John', 'Mary', 'Joseph', 'Anna', 'Peter', 'Paula', 'Charles', 'Lucy', 'Francis', 'Theresa'];
+            const cities = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Salvador', 'Curitiba', 'Recife', 'Fortaleza', 'Brasília'];
+            const times = ['2 minutes', '5 minutes', '8 minutes', '12 minutes', '15 minutes'];
+            
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                z-index: 1000;
+                transform: translateX(-400px);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            
+            notification.innerHTML = `
+                <span style="font-size: 24px;">✅</span>
+                <div>
+                    <strong>${names[Math.floor(Math.random() * names.length)]} from ${cities[Math.floor(Math.random() * cities.length)]}</strong><br>
+                    <span style="font-size: 14px; color: #666;">Acquired the Manuscript ${times[Math.floor(Math.random() * times.length)]} ago</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-400px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+        
+        // Show social proof notifications
+        setTimeout(() => {
+            showSocialProof();
+            setInterval(showSocialProof, 45000);
+        }, 10000);
+        
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            if (scrollPercentage > maxScroll) {
+                maxScroll = scrollPercentage;
+                
+                // Track milestones
+                if (maxScroll > 25 && !window.tracked25) {
+                    window.tracked25 = true;
+                    trackScrollDepth(25);
+                } else if (maxScroll > 50 && !window.tracked50) {
+                    window.tracked50 = true;
+                    trackScrollDepth(50);
+                } else if (maxScroll > 75 && !window.tracked75) {
+                    window.tracked75 = true;
+                    trackScrollDepth(75);
+                } else if (maxScroll > 90 && !window.tracked90) {
+                    window.tracked90 = true;
+                    trackScrollDepth(90);
+                }
+            }
+        });
+        
+        function trackScrollDepth(percentage) {
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'ScrollDepth', {
+                    percentage: percentage,
+                    page: 'backredirect'
+                });
+            }
+        }
+        
+        // Time on page tracking
+        let timeOnPage = 0;
+        setInterval(() => {
+            timeOnPage++;
+            
+            // Track engagement milestones
+            if (timeOnPage === 30) {
+                trackTimeOnPage(30);
+            } else if (timeOnPage === 60) {
+                trackTimeOnPage(60);
+            } else if (timeOnPage === 120) {
+                trackTimeOnPage(120);
+            } else if (timeOnPage === 180) {
+                trackTimeOnPage(180);
+            }
+        }, 1000);
+        
+        function trackTimeOnPage(seconds) {
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'TimeOnPage', {
+                    seconds: seconds,
+                    page: 'backredirect'
+                });
+            }
+        }
+        
+        // Vibration on mobile for CTAs (subtle)
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(50);
+                }
+            });
+        });
+        
+        // Letter reveal animation
+        const letterParagraphs = document.querySelectorAll('.letter-paragraph');
+        const paragraphObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('typing-effect');
+                }
+            });
+        });
+        
+        letterParagraphs.forEach(p => paragraphObserver.observe(p));
+        
+        // Auto-save reading position
+        let readingPosition = sessionStorage.getItem('readingPosition');
+        if (readingPosition && window.location.hash === '') {
+            window.scrollTo(0, parseInt(readingPosition));
+        }
+        
+        window.addEventListener('scroll', () => {
+            sessionStorage.setItem('readingPosition', window.scrollY);
+        });
+        
+        // Handle errors gracefully
+        window.addEventListener('error', (e) => {
+            console.error('Error caught:', e);
+        });
+        
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = window.performance.timing;
+                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                    
+                    if (typeof fbq !== 'undefined' && pageLoadTime > 0) {
+                        fbq('trackCustom', 'PageLoadTime', {
+                            time_ms: pageLoadTime,
+                            page: 'backredirect'
+                        });
+                    }
+                }, 0);
+            });
+        }</script>
+    </body></html>
